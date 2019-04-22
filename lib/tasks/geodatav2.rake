@@ -20,9 +20,9 @@ namespace :geodata do
     shared_solr_opts = { managed: true, verbose: true, persist: false, download_dir: 'tmp' }
     shared_solr_opts[:version] = ENV['SOLR_VERSION'] if ENV['SOLR_VERSION']
 
-    SolrWrapper.wrap(shared_solr_opts.merge(port: 8983, instance_dir: 'tmp/geodata-core-development')) do |solr|
-      solr.with_collection(name: "geodata-core-development", dir: Rails.root.join("solr", "conf").to_s) do
-        puts "Solr running at http://localhost:8983/solr/#/geodata-core-development, ^C to exit"
+    SolrWrapper.wrap(shared_solr_opts.merge(port: 8983, instance_dir: 'tmp/geodata-core')) do |solr|
+      solr.with_collection(name: "geodata-core", dir: Rails.root.join("solr", "conf").to_s) do
+        puts "Solr running at http://localhost:8983/solr/#/geodata-core, ^C to exit"
         puts ' '
         begin
           Rake::Task['geoblacklight:solr:seed'].invoke
@@ -62,9 +62,9 @@ namespace :geodata do
     shared_solr_opts = { managed: true, verbose: true, persist: false, download_dir: 'tmp' }
     shared_solr_opts[:version] = ENV['SOLR_VERSION'] if ENV['SOLR_VERSION']
 
-    SolrWrapper.wrap(shared_solr_opts.merge(port: 8983, instance_dir: 'tmp/geodata-core-development')) do |solr|
-      solr.with_collection(name: "geodata-core-development", dir: Rails.root.join("solr", "conf").to_s) do
-        puts "Solr running at http://localhost:8983/solr/#/geodata-core-development, ^C to exit"
+    SolrWrapper.wrap(shared_solr_opts.merge(port: 8983, instance_dir: 'tmp/geodata-core')) do |solr|
+      solr.with_collection(name: "geodata-core", dir: Rails.root.join("solr", "conf").to_s) do
+        puts "Solr running at http://localhost:8983/solr/#/geodata-core, ^C to exit"
         begin
           Rake::Task['geoblacklight:solr:seed'].invoke
           sleep
