@@ -66,9 +66,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'blacklight', '~> 7.0'
 gem 'geoblacklight', '~> 2.0'
-gem 'webpacker', '~> 3.5'
-
-
 gem 'rsolr', '>= 1.0', '< 3'
 gem 'bootstrap', '~> 4.0'
 gem 'popper_js'
