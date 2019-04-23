@@ -6,10 +6,10 @@ set :repo_url, 'git@github.com:WIStCart/geodatav2.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-#unless ARGV.include?('deploy:rollback')
- # avail_tags = `git tag --sort=version:refname`
-  #set :branch, (ENV['GEODATA_RELEASE'] || ask("release tag or branch:\n #{avail_tags}", avail_tags.chomp.split("\n").last))
-#end
+unless ARGV.include?('deploy:rollback')
+ avail_tags = `git tag --sort=version:refname`
+  set :branch, (ENV['GEODATA_RELEASE'] || ask("release tag or branch:\n #{avail_tags}", avail_tags.chomp.split("\n").last))
+end
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
