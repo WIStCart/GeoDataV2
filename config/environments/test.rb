@@ -19,8 +19,10 @@ Rails.application.configure do
   }
 
   # Compress JavaScripts and CSS.
+  config.assets.compress = true
   config.assets.js_compressor = :uglifier
   config.assets.css_compressor = :sass
+  config.assets.debug = false
   
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
