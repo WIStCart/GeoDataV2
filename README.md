@@ -11,7 +11,7 @@ Deployment defined in `config/deploy.rb, config/deploy/production.rb` will
 deploy the application using the server's `geodeploy` user.
 
 ```shell
-$ bundle exec cap development|production deploy
+$ bundle exec cap test|production deploy
 ```
 
 ### Database configuration and secrets
