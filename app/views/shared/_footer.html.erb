@@ -1,0 +1,22 @@
+<!-- Idea: use Ruby variables to define a series of links (url text, url) to insert automatically into the footer, up to a maximum number of links as space allows -->
+<footer class="l-footer" role="contentinfo">
+    <div class="l-region l-region--footer container">
+        <div id="uw-logo">
+            <a class="uw-logo" href=
+            "http://www.wisc.edu" target="_blank">
+            <%= image_tag 'uw.png' %></a>
+        </div>
+        <div id="uw-footer-links">
+        <!-- loop through links... defined in a yml? -->
+        <!-- worth the overhead?  Just hard-code links? -->
+            <ul>
+                <li><a href="">link1</a></li>
+                <li><a href="">link2</a></li>
+            </ul>
+        </div>
+        <p class="footer-copyright">&copy; <%= Date.current.year %> Board of Regents of the <a href="http://www.wisconsin.edu/" target="_blank">University of Wisconsin System</a></p>
+        
+    </div>
+</footer>
+
+
