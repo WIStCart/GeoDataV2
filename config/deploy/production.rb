@@ -7,7 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-set :rails_env, 'development'
+set :rails_env, 'production'
 server "geodata-prod.sco.wisc.edu", user: "geodeploy", roles: [:web,:app,:db]
 
 # role-based syntax
