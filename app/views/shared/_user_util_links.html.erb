@@ -1,0 +1,7 @@
+<ul class="navbar-nav">
+  <%= render_nav_actions do |config, action|%>
+    <li class="nav-item"><%= action %></li>
+  <% end %>
+  <li class="nav-item"><%= link_to 'About', page_path('about'),{class: 'nav-link'} %></li>
+  <li class="nav-item"><%= link_to 'Help', page_path('help'),{class: 'nav-link'} %></li>
+</ul>
