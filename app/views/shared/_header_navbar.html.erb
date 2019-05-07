@@ -14,13 +14,16 @@
   </div>
 </nav>
 
-<% if controller_name == 'catalog' && (has_search_parameters? || params[:action] == 'show') %>
+
+<% if controller_name == 'catalog' && has_search_parameters? %>
   <div class="navbar-search navbar navbar-light bg-faded" role="navigation">
     <div class="<%= container_classes %>" uw-button>
       <%= render_search_bar  %>
     </div>
   </div>
-<% else %>
+<% elsif controller_name == 'catalog' && params[:action] == 'show' %>
+<div class="navbar-search navbar navbar-light bg-faded"></div>
+<% elsif controller_name == 'catalog'%>
   <div class='geobl-homepage-masthead jumbotron'>
     <div class='row justify-content-md-center'>
       <div class='col-md-6 col-sm-12'>

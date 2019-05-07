@@ -43,9 +43,12 @@ footer {
         list-style: none;
     }
     
-  .uw-footer-content > div.uw-logo {
+  .uw-footer-content > div.uw-logo a img {
       padding-bottom: 2rem;
-      text-align: center; }  
+      text-align: center; 
+      width: 200px;
+      height: 150px;
+      mid-width: 175px;}  
     
   .uw-footer-content ul {
     margin-left: 0;
@@ -59,15 +62,13 @@ footer {
     color: $uw-gray-footer-text;
    }
    
-  .uw-logo a svg {
-    width: 200px;
-    height: 150px;
-    min-width: 175px;
+  .uw-logo a img svg {
     fill: $uw-gray-footer-text;
     color: $uw-gray-footer-text;
+    background-color: $uw-gray-footer-text;
   }
   
-  .uw-logo a:hover svg {
+  .uw-logo a:hover img {
     fill: $uw-gray-footer-text-hover;
     color: $uw-gray-footer-text-hover;
   }

@@ -5,4 +5,7 @@ en:
       search_history: 'Search History'
     search:
       form:
+        search:
+          placeholder: 'Keyword search...'
         submit: ''
+        
