@@ -1,0 +1,38 @@
+<footer class="uw-footer" role="contentinfo">
+	<div class="uw-footer-content">
+		<div class="uw-logo">
+        <a href="http://www.wisc.edu" aria-label="Link to UW-Madison website" target="_blank">
+        <%= image_tag("uw-logo-mono.svg") %>           
+         </a>
+		</div>
+        <div>
+            <h3 class="uw-footer-header">GeoData@WI</h3>
+               <ul>
+                    <li><%= link_to 'About', page_path('about') %></li>
+                    <li><%= link_to 'Help', page_path('help') %></li>
+                    <li><%= link_to 'Contribute', page_path('contribute') %></li>
+                    <li><%= link_to 'Credits', page_path('credits') %></li>
+                </ul>              
+        </div>
+        <div>
+            <h3 class="uw-footer-header">Partners</h3>
+                <ul>
+                    <li><a href="https://geography.wisc.edu/maplibrary/" target="_blank">Robinson Map Library</a></li>
+                    <li><a href="https://www.sco.wisc.edu" target="_blank">State Cartographer's Office</a></li>
+                    <li><a href="https://doa.wi.gov/Pages/LocalGovtsGrants/WLIP.aspx" target="_blank">Wisconsin Land Info Program</a></li>
+                    <li><a href="https://legis.wisconsin.gov/ltsb/gis/" target="_blank">Wisconsin LTSB GIS Services</a></li>
+                    <li><a href="https://wisconsinview.org" target="_blank">WisconsinView</a></li>
+                </ul>              
+        </div>       			
+        <div class="uw-footer-contact">
+            <h3 class="uw-footer-header">Contact Us</h3><ul class="uw-contact-list">
+            <li class="uw-contact-item uw-contact-address">GeoData@Wisconsin<br>
+            University of Wisconsin<br>
+        550 North Park Street<br>
+        Madison, WI 53706 </li>
+            <li class="uw-contact-item">Email: <a href="mailto:geodata@sco.wisc.edu">geodata@sco.wisc.edu</a></li>
+            <li class="uw-contact-item">Phone: <a href="tel:608-262-3065">608-262-3065</a></li>
+        </div>		
+   </div> 
+   <div class="copyright">&copy; <%= Date.current.year %> Board of Regents of the <a href="http://www.wisconsin.edu/" target="_blank">University of Wisconsin System</a></div>  
+</footer>

@@ -1,35 +1,154 @@
-// Big Ten Academic Alliance colors:
-$white: #FFFFFF; // 100%
-$gray: #CCCCCC; // 80%
-$black: #000000; // 0%
-$btaa-blue: #0088ce;
-$radius: 4px;
-
-
-
-section#footer-app {
-  color:$white;
-  padding-top:1rem;
-  padding-bottom:1rem;
-  background-color: $btaa-blue;
-  a {
-    color:$white;
-  }
-  ul {
-    margin-bottom:0rem;
-  }
-}
-
 footer {
-  background-color:$gray;
-  padding-top:2rem;
-  padding-bottom:2rem;
+  background-color:$uw-gray-darkest;
+  color: $uw-gray-footer-text;
+  padding-top:1rem;
+  padding-bottom:.5rem;
+  margin-top:2rem;
+  border-top: 5px solid #c5050c;
+  clear: both;
+    
+    a:hover {
+       color: $uw-gray-footer-text-hover;
+    }
+  
+    a {
+        color: $uw-gray-footer-text;
+    }
+    
+    .uw-footer-content {
+        padding-top: 1rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-  a {
-    color: $black;
+  .uw-footer-content > div {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
+    max-width: 100%;
+    padding: 0 2rem;
+    text-align: center; }
+  
+  .uw-footer-content li, .uw-footer-content p {
+        font-size: 1.0rem;
+        margin: 0 0 .5rem;
+        line-height: 1.25;
+        list-style: none;
+    }
+    
+  .uw-footer-content > div.uw-logo a img {
+      padding-bottom: 2rem;
+      text-align: center; 
+      width: 200px;
+      height: 150px;
+      mid-width: 175px;}  
+    
+  .uw-footer-content ul {
+    margin-left: 0;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 2rem; 
   }
+ 
+  .copyright {
+    text-align: center;
+    color: $uw-gray-footer-text;
+   }
+   
+  .uw-logo a img svg {
+    fill: $uw-gray-footer-text;
+    color: $uw-gray-footer-text;
+    background-color: $uw-gray-footer-text;
+  }
+  
+  .uw-logo a:hover img {
+    fill: $uw-gray-footer-text-hover;
+    color: $uw-gray-footer-text-hover;
+  }
+  
+  .uw-footer-header {
+    color: $uw-gray-footer-text;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.25;
+    margin: 0 0 1rem;
 }
 
-#university-libraries {
-  border:4px solid $white;
+.uw-footer-contact {
+  text-align: center; }
+
+.uw-contact-list {
+  margin-left: 0; }
+
+.uw-contact-item {
+  list-style: none;
+  margin-bottom: .75rem;
+  line-height: 1.25; }
+  
+  
+@media screen and (min-width: 40em) {
+    .uw-footer-content > div {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 0 33.333%;
+              flex: 1 0 33.333%;
+      max-width: 33.333%;
+      padding: 0 2rem;
+      text-align: center; }
+      .uw-footer-content > div.uw-logo:nth-last-child(2):nth-child(1) {
+        -ms-flex-preferred-size: 50%;
+            flex-basis: 50%;
+        max-width: 50%;
+        text-align: right; }
+      .uw-footer-content > div:nth-last-child(1):nth-child(2) {
+        -ms-flex-preferred-size: 50%;
+            flex-basis: 50%;
+        max-width: 50%;
+        text-align: left; }
+      .uw-footer-content > div.uw-logo:nth-last-child(3):nth-child(1) {
+        -ms-flex-preferred-size: 33.333333%;
+            flex-basis: 33.333333%;
+        max-width: 33.333333%;
+        text-align: right; }
+      .uw-footer-content > div:nth-last-child(2):nth-child(2) {
+        -ms-flex-preferred-size: 33.333333%;
+            flex-basis: 33.333333%;
+        max-width: 33.333333%;
+        text-align: left; }
+      .uw-footer-content > div:nth-last-child(1):nth-child(3) {
+        -ms-flex-preferred-size: 33.333333%;
+            flex-basis: 33.333333%;
+        max-width: 33.333333%;
+        text-align: left; }
+    .uw-footer-content .uw-logo {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 1 100%;
+              flex: 0 1 100%;
+      max-width: 100%;
+      padding-bottom: 2rem; }
+    .uw-footer-content p, .uw-footer-content li {
+      font-size: 1.0rem;
+      margin-bottom: .75rem; } }
+
+@media screen and (min-width: 60.75em) {
+    .uw-footer-content {
+      padding-top: 4rem; }
+      .uw-footer-content > div {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 0 25%;
+                flex: 1 0 25%;
+        max-width: 25%;
+        padding: 0 2rem;
+        text-align: left; }
+      .uw-footer-content .uw-logo {
+        -ms-flex-preferred-size: 25%;
+            flex-basis: 25%;
+        max-width: 25%; } }      
 }
+

@@ -1,3 +1,11 @@
 en:
   blacklight:
-    application_name: 'Geodata@Wisconsin'
+    application_name: 'GeoData@Wisconsin'
+    header_links:
+      search_history: 'Search History'
+    search:
+      form:
+        search:
+          placeholder: 'Keyword search...'
+        submit: ''
+        

@@ -6,7 +6,7 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
 
   configure_blacklight do |config|
-
+  
     # Ensures that JSON representations of Solr Documents can be retrieved using
     # the path /catalog/:id/raw
     # Please see https://github.com/projectblacklight/blacklight/pull/2006/
@@ -22,7 +22,7 @@ class CatalogController < ApplicationController
 
     ## Default rows returned from Solr
     ## @see https://lucene.apache.org/solr/guide/6_6/common-query-parameters.html
-    config.default_per_page = 10
+    config.default_per_page = 20
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or
     ## parameters included in the Blacklight-jetty document requestHandler.
@@ -85,15 +85,28 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Institution', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 8, collapse: false
+    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 7, collapse: false
+    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 8
+    config.add_facet_field 'time_period', :label => 'Time Period', :query => {
+      '2010-present' => { :label => '2010-present', :fq => "solr_year_i:[2010 TO #{Time.now.year}]"},
+      '2000-2009' => { :label => '2000-2009', :fq => "solr_year_i:[2000 TO 2009]" },
+      '1990-1999' => { :label => '1990-1999', :fq => "solr_year_i:[1990 TO 1999]" },
+      '1980-1989' => { :label => '1980-1989', :fq => "solr_year_i:[1980 TO 1989]" },
+      '1970-1979' => { :label => '1970-1979', :fq => "solr_year_i:[1970 TO 1979]" },
+      '1960-1969' => { :label => '1960-1969', :fq => "solr_year_i:[1960 TO 1969]" },
+      '1950-1959' => { :label => '1950-1959', :fq => "solr_year_i:[1950 TO 1959]" },
+      '1940-1949' => { :label => '1940-1949', :fq => "solr_year_i:[1940 TO 1949]" },    
+      '1930-1939' => { :label => '1930-1939', :fq => "solr_year_i:[1930 TO 1939]" },
+      '1920-1929' => { :label => '1920-1929', :fq => "solr_year_i:[1920 TO 1929]" },
+      '1910-1919' => { :label => '1910-1919', :fq => "solr_year_i:[1910 TO 1919]" },
+      '1900-1909' => { :label => '1900-1909', :fq => "solr_year_i:[1900 TO 1909]" },
+      '1800s' => { :label => '1800s', :fq => "solr_year_i:[1800 TO 1899]" }
+    }, collapse: false
+    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
+    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 6, collapse: false
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Author', :limit => 8
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
-    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
-    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
-    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 8
-
-    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
-
     config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
@@ -231,13 +244,13 @@ class CatalogController < ApplicationController
     config.spell_max = 5
 
     # Nav actions from Blacklight
-    config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
+    #config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
     config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
 
     # Tools from Blacklight
     config.add_results_collection_tool(:sort_widget)
     config.add_results_collection_tool(:per_page_widget)
-    config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
+    #config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
     config.add_show_tools_partial(:email, callback: :email_action, validator: :validate_email_params)
     config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :validate_sms_params)
 
@@ -263,6 +276,8 @@ class CatalogController < ApplicationController
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
+    
+
   end
 
 
