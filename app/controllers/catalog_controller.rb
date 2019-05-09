@@ -87,8 +87,8 @@ class CatalogController < ApplicationController
 
     config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 6, collapse: false
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Created By', :limit => 5, collapse: false
-    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 6, collapse: true
     config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 6, collapse: false
+    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 6, collapse: true
     config.add_facet_field 'time_period', :label => 'Time Period', :query => {
       '2010-present' => { :label => '2010-present', :fq => "solr_year_i:[2010 TO #{Time.now.year}]"},
       '2000-2009' => { :label => '2000-2009', :fq => "solr_year_i:[2000 TO 2009]" },
