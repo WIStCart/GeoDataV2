@@ -85,9 +85,10 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 8, collapse: false
-    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 7, collapse: false
-    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 8
+    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 6, collapse: false
+    config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Created By', :limit => 5, collapse: false
+    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 6, collapse: false
+    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 6, collapse: true
     config.add_facet_field 'time_period', :label => 'Time Period', :query => {
       '2010-present' => { :label => '2010-present', :fq => "solr_year_i:[2010 TO #{Time.now.year}]"},
       '2000-2009' => { :label => '2000-2009', :fq => "solr_year_i:[2000 TO 2009]" },
@@ -104,8 +105,7 @@ class CatalogController < ApplicationController
       '1800s' => { :label => '1800s', :fq => "solr_year_i:[1800 TO 1899]" }
     }, collapse: false
     config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
-    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 6, collapse: false
-    config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Author', :limit => 8
+    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 6, collapse: true
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
