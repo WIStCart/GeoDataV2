@@ -1,42 +1,48 @@
-<div class='container'>
-  <div class='row text-center'>
-    <div class='col-sm'>
-      <%= content_tag :h3, t('geoblacklight.home.category_heading') %>
-      <div class='row'>
-        <div class='category-block col-sm'>
-          <div class='category-icon'>
-            <span class='fa fa-home'></span>
-          </div>
-          <%= content_tag :h4, t('geoblacklight.home.institution') %>
-          <%= render_facet_tags [Settings.FIELDS.PROVENANCE] %>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-lg-5 order-1'>
+      <div class='row text-center'>
+        <div class='col-sm col-12 order-1'>         
+          <div class='card uw-icon-container mx-auto'>
+          <h4 class='card-header facet-field-heading' >Browse All</h4>
+             <%= link_to image_tag("maplayers-index-page.svg",{:class => "uw-home-icon", :alt => "Browse All"}), "/?utf8=✓&search_field=all_fields&q=" %>
+          </div>     
         </div>
-        <div class='category-block col-sm'>
-          <div class='category-icon'>
-            <span class='fa fa-arrow-circle-down'></span>
+        <div class='col-sm col-12 order-2'>         
+          <div class='card uw-icon-container mx-auto'>
+          <h4 class='card-header facet-field-heading'>Statewide Layers</h4>
+            <%= link_to image_tag("wisconsin.svg",{:class => "uw-home-icon", :alt => "Statewide Layers"}), "/?f%5Bdct_isPartOf_sm%5D%5B%5D=Statewide" %>
           </div>
-          <%= content_tag :h4, t('geoblacklight.home.data_type') %>
-          <%= render_facet_tags [Settings.FIELDS.GEOM_TYPE] %>
+        </div>
+      </div>
+      <div class='row text-center'>
+        <div class='col-sm col-12 order-3'>
+          
+          <div class='card uw-icon-container mx-auto'>
+          <h4 class='card-header facet-field-heading'>Coastal Layers</h4>
+            <%= link_to image_tag("waves.svg",{:class => "uw-home-icon", :alt => "Coastal Layers"}), "/?f%5Bdct_isPartOf_sm%5D%5B%5D=Coastal" %>
+          </div>     
+        </div>
+        <div class='col-sm col-12 order-4'>
+          
+          <div class='card uw-icon-container mx-auto'>
+          <h3 class='card-header facet-field-heading'>Aerial Imagery</h3>
+            <%= link_to image_tag("airphoto.svg",{:class => "uw-home-icon", :alt => "Aerial Imagery"}), "/?f%5Bdct_isPartOf_sm%5D%5B%5D=Aerial+Imagery" %>
+          </div>
         </div>
       </div>
       <div class='row'>
-        <div class='category-block col-sm'>
-          <div class='category-icon'>
-            <span class='fa fa-globe'></span>
-          </div>
-          <%= content_tag :h4, t('geoblacklight.home.placename') %>
-          <%= render_facet_tags [Settings.FIELDS.SPATIAL_COVERAGE] %>
+        <div class='col-sm order-1'>
+        <h4 class='sr-only'>Place</h4>
+           <%= render_facet_partials [:dct_spatial_sm], {class:'active'} %>
         </div>
-        <div class='category-block col-sm'>
-          <div class='category-icon'>
-            <span class='fa fa-tags'></span>
-          </div>
-          <%= content_tag :h4, t('geoblacklight.home.subject') %>
-          <%= render_facet_tags [Settings.FIELDS.SUBJECT] %>
+        <div class='col-sm order-2'>
+        <h4 class='sr-only'>Subject</h4>
+          <%= render_facet_partials [:dc_subject_sm] %>
         </div>
       </div>
     </div>
-    <div class='col-sm'>
-      <%= content_tag :h3, t('geoblacklight.home.map_heading') %>
+    <div id="wrapper-map" class='col-lg-7 order-2'>
       <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
     </div>
   </div>
