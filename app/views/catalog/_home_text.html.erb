@@ -33,12 +33,12 @@
       </div>
       <div class='row'>
         <div class='col-sm order-1'>
-        <h4 class='sr-only'>Place</h4>
-           <%= render_facet_partials [:dct_spatial_sm], {class:'active'} %>
+        <h4 class='sr-only'>Creator</h4>
+           <%= render_facet_partials [:dc_creator_sm], {class:'active'} %>
         </div>
         <div class='col-sm order-2'>
-        <h4 class='sr-only'>Subject</h4>
-          <%= render_facet_partials [:dc_subject_sm] %>
+        <h4 class='sr-only'>Held By</h4>
+          <%= render_facet_partials [:dct_provenance_s] %>
         </div>
       </div>
     </div>
