@@ -146,14 +146,15 @@ class CatalogController < ApplicationController
     # item_prop: [String] property given to span with Schema.org item property
     # link_to_search: [Boolean] that can be passed to link to a facet search
     # helper_method: [Symbol] method that can be used to render the value
-    config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author'
+    config.add_show_field Settings.FIELDS.CREATOR, label: 'Created By', itemprop: 'author', link_to_facet: true
     config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
     config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
-    config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf'
+    config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf', link_to_facet: true
     config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_facet: true
     config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
-    config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_facet: true
+    config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held By', link_to_facet: true
+    config.add_show_field Settings.FIELDS.SUPPLEMENTAL, label: 'Supplemental Info', itemprop: 'supplemental'
     config.add_show_field(
       Settings.FIELDS.REFERENCES,
       label: 'More details at',
@@ -161,6 +162,7 @@ class CatalogController < ApplicationController
       if: proc { |_, _, doc| doc.external_url },
       helper_method: :render_references_url
     )
+    
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -236,7 +238,6 @@ class CatalogController < ApplicationController
     # except in the relevancy case).
     config.add_sort_field 'score desc, dc_title_sort asc', :label => 'relevance'
     config.add_sort_field "#{Settings.FIELDS.YEAR} desc, dc_title_sort asc", :label => 'year'
-    config.add_sort_field "#{Settings.FIELDS.PUBLISHER} asc, dc_title_sort asc", :label => 'publisher'
     config.add_sort_field 'dc_title_sort asc', :label => 'title'
 
     # If there are more than this many search results, no spelling ("did you
@@ -251,8 +252,8 @@ class CatalogController < ApplicationController
     config.add_results_collection_tool(:sort_widget)
     config.add_results_collection_tool(:per_page_widget)
     #config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
-    config.add_show_tools_partial(:email, callback: :email_action, validator: :validate_email_params)
-    config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :validate_sms_params)
+    #config.add_show_tools_partial(:email, callback: :email_action, validator: :validate_email_params)
+    #config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :validate_sms_params)
 
     # Custom tools for GeoBlacklight
     config.add_show_tools_partial :web_services, if: proc { |_context, _config, options| options[:document] && (Settings.WEBSERVICES_SHOWN & options[:document].references.refs.map(&:type).map(&:to_s)).any? }
