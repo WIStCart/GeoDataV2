@@ -152,7 +152,7 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf', link_to_facet: true
     config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_facet: true
-    config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
+    config.add_show_field Settings.FIELDS.YEAR, label: 'Year', itemprop: 'year'
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held By', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUPPLEMENTAL, label: 'Supplemental Info', itemprop: 'supplemental'
     config.add_show_field(
