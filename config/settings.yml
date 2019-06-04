@@ -35,6 +35,8 @@ FIELDS:
   :TEMPORAL: 'dct_temporal_sm'
   :TITLE: 'dc_title_s'
   :SOURCE: 'dc_source_sm'
+  :SUPPLEMENTAL: 'uw_supplemental_s'
+  :NOTICE: 'uw_notice_s'
 
 # Institution deployed at
 INSTITUTION: 'University of Wisconsin'
