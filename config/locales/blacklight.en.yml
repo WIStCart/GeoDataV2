@@ -8,4 +8,5 @@ en:
         search:
           placeholder: 'Keyword search...'
         submit: ''
-        
+    tools:
+      title: 'Links'       
