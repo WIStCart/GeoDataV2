@@ -65,7 +65,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'blacklight', '~> 7.0'
-gem 'geoblacklight', '~> 2.1'
+gem 'geoblacklight', '~> 2.2.1'
 gem 'rsolr', '>= 1.0', '< 3'
 gem 'bootstrap', '~> 4.0'
 gem 'popper_js'
@@ -78,5 +78,3 @@ gem 'capistrano', '~>3.11.0'
 gem 'capistrano-bundler', '~>1.4.0'
 gem 'capistrano-rails', '~>1.4.0'
 gem 'capistrano-passenger', '~>0.2.0'
-
-gem "high_voltage",'~> 3.1'

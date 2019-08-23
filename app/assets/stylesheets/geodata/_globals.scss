@@ -5,6 +5,7 @@
 $white: #FFFFFF; // 100%
 $gray: #CCCCCC; // 80%
 $black: #000000; // 0%
+$button-blue: #007bff;
 $radius: .5em;
 $border-width: 1px;
 $border-radius: .5em;
@@ -42,7 +43,7 @@ body:after{
   position: fixed;
   width: 80px;
   height: 25px;
-  background: #007bff;
+  background: $button-blue;
   top: 7px;
   right: -20px;
   text-align: center;
@@ -57,7 +58,7 @@ body:after{
   transform:rotate(45deg);
 }
 
-// tweak to get rid of white border that peaks out around the "search here" button
+// tweak to get rid of white border that peeks out around the "search here" button
 .search-control {
     border-radius: .7em !important;
 }

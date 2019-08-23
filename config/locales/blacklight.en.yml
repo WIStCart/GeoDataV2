@@ -6,6 +6,11 @@ en:
     search:
       form:
         search:
-          placeholder: 'Keyword search...'
+          placeholder: 'Keyword(s) search...'
         submit: ''
-        
+      facets:
+        title: 'Filter your search:'
+        clear: 'Clear Filter'   
+    tools:
+      title: 'Links' 
+   

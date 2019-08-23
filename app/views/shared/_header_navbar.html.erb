@@ -16,12 +16,18 @@
 
 
 <% if controller_name == 'catalog' && has_search_parameters? %>
-  <div class="navbar-search navbar navbar-light bg-faded" role="navigation">
-    <div class="<%= container_classes %>" uw-button>
-      <%= render_search_bar  %>
+    <!-- search results page -->
+  <div id="search-results" class='geobl-homepage-masthead jumbotron'>
+    <div class='row justify-content-md-center'>
+      <div class='col-md-6 col-sm-12'>
+        <div class='navbar-search uw-button'>
+          <%= render_search_bar %>
+        </div>
+      </div>
     </div>
   </div>
 <% elsif controller_name == 'catalog' && params[:action] == 'show' %>
+<!-- home page -->
 <div class="navbar-search navbar navbar-light bg-faded"></div>
 <% elsif controller_name == 'catalog'%>
   <div class='geobl-homepage-masthead jumbotron'>

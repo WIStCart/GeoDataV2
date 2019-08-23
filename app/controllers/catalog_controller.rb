@@ -87,11 +87,13 @@ class CatalogController < ApplicationController
 
     config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 6, collapse: false
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Created By', :limit => 5, collapse: false
-    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 6, collapse: false
-    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 6, collapse: true
+    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 6, collapse: true
     config.add_facet_field 'time_period', :label => 'Time Period', :query => {
-      '2010-present' => { :label => '2010-present', :fq => "solr_year_i:[2010 TO #{Time.now.year}]"},
-      '2000-2009' => { :label => '2000-2009', :fq => "solr_year_i:[2000 TO 2009]" },
+      'Future' => { :label => 'Future', :fq => "solr_year_i:[#{Time.now.year + 1} TO 3000]"},
+      '2015-present' => { :label => '2015-present', :fq => "solr_year_i:[2015 TO #{Time.now.year}]"},
+      '2010-2014' => { :label => '2010-2014', :fq => "solr_year_i:[2010 TO 2014]" },
+      '2005-2009' => { :label => '2005-2009', :fq => "solr_year_i:[2005 TO 2009]" },
+      '2000-2004' => { :label => '2000-2004', :fq => "solr_year_i:[2000 TO 2004]" },
       '1990-1999' => { :label => '1990-1999', :fq => "solr_year_i:[1990 TO 1999]" },
       '1980-1989' => { :label => '1980-1989', :fq => "solr_year_i:[1980 TO 1989]" },
       '1970-1979' => { :label => '1970-1979', :fq => "solr_year_i:[1970 TO 1979]" },
@@ -103,11 +105,11 @@ class CatalogController < ApplicationController
       '1910-1919' => { :label => '1910-1919', :fq => "solr_year_i:[1910 TO 1919]" },
       '1900-1909' => { :label => '1900-1909', :fq => "solr_year_i:[1900 TO 1909]" },
       '1800s' => { :label => '1800s', :fq => "solr_year_i:[1800 TO 1899]" }
-    }, collapse: false
-    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
+    }, collapse: true
+    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 6, collapse: true
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
-    config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
+    #config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
 
@@ -150,7 +152,6 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
     config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
     config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf', link_to_facet: true
-    config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_facet: true
     config.add_show_field Settings.FIELDS.YEAR, label: 'Year', itemprop: 'year'
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held By', link_to_facet: true
