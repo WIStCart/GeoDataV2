@@ -87,7 +87,7 @@ class CatalogController < ApplicationController
 
     config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 6, collapse: false
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Created By', :limit => 5, collapse: false
-    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 6, collapse: false
+    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 6, collapse: true
     config.add_facet_field 'time_period', :label => 'Time Period', :query => {
       'Future' => { :label => 'Future', :fq => "solr_year_i:[#{Time.now.year + 1} TO 3000]"},
       '2015-present' => { :label => '2015-present', :fq => "solr_year_i:[2015 TO #{Time.now.year}]"},
@@ -105,8 +105,8 @@ class CatalogController < ApplicationController
       '1910-1919' => { :label => '1910-1919', :fq => "solr_year_i:[1910 TO 1919]" },
       '1900-1909' => { :label => '1900-1909', :fq => "solr_year_i:[1900 TO 1909]" },
       '1800s' => { :label => '1800s', :fq => "solr_year_i:[1800 TO 1899]" }
-    }, collapse: false
-    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
+    }, collapse: true
+    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 6, collapse: true
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     #config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"

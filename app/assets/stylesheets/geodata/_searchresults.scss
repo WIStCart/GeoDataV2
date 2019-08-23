@@ -1,0 +1,29 @@
+// get rid of facet header    
+#facets>div.navbar {
+    display: none;
+    }
+
+// extra space below facet breadcrumbs    
+#appliedParams {
+    padding-bottom: 1em;
+}
+
+//reduce space between jumbotron and facet breadcrumbs
+#search-results.geobl-homepage-masthead.jumbotron {
+    margin-bottom: 1em;
+}
+
+// little extra space above pagination bar below document list
+.pagination {
+margin-top: 1rem;
+}
+
+// make size of map roughly same height as 20 search results
+#main-container [data-map="index"] {
+    height: 880px !important;
+}
+
+// fix alignment issue with dataset list
+.documentHeader.row {
+margin-left: 0px !important;
+}
