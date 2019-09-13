@@ -85,9 +85,9 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 6, collapse: false
+    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 5, collapse: false
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Created By', :limit => 5, collapse: false
-    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 6, collapse: true
+    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 5, collapse: false
     config.add_facet_field 'time_period', :label => 'Time Period', :query => {
       'Future' => { :label => 'Future', :fq => "solr_year_i:[#{Time.now.year + 1} TO 3000]"},
       '2015-present' => { :label => '2015-present', :fq => "solr_year_i:[2015 TO #{Time.now.year}]"},
@@ -107,11 +107,11 @@ class CatalogController < ApplicationController
       '1800s' => { :label => '1800s', :fq => "solr_year_i:[1800 TO 1899]" }
     }, collapse: true
     config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 8
-    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 6, collapse: true
+    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 5, collapse: true
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     #config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
+    config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 5
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
