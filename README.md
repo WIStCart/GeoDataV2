@@ -31,6 +31,9 @@ bundle exec rake db:schema:load
 
 # Run Solr and Rails App server
 bundle exec rake geodata:server
+
+# Run Solr and Application Test Suite
+RAILS_ENV=test bundle exec rake ci
 ```
 
 ### MJB Removed/Modified:
