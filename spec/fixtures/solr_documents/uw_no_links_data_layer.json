@@ -1,0 +1,22 @@
+{
+  "geoblacklight_version": "1.0",
+  "dc_identifier_s": "MilwaukeeCounty_b64d9ead8a1843d7b01d8ff4915bc89b",
+  "dc_title_s": "1928 Aerial Photo, Milwaukee County",
+  "dc_description_s": "Aerial Photography of portions of Milwaukee County acquired in 1928",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Milwaukee County",
+  "layer_slug_s": "MilwaukeeCounty_b64d9ead8a1843d7b01d8ff4915bc89b",
+  "dc_format_s": "File",
+  "dc_language_s": "English",
+  "dct_isPartOf_sm": [
+    "Wisconsin Open Data Sites"
+  ],
+  "dc_creator_sm": [
+    "Milwaukee County"
+  ],
+  "dc_type_s": "Dataset",
+  "solr_geom": "ENVELOPE(-88.0723, -87.8606, 43.1908, 42.9325)",
+  "solr_year_i": 2018,
+  "dct_references_s": "{\"http://schema.org/url\":\"http://gis-mclio.opendata.arcgis.com/datasets/b64d9ead8a1843d7b01d8ff4915bc89b\"}",
+  "uw_notice_s": "This dataset was automatically cataloged from the author's Open Data Portal. In some cases, publication year and bounding coordinates shown here may be incorrect.  Please check the 'More details at' link for additional information."
+}

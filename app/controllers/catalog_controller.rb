@@ -6,7 +6,7 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
 
   configure_blacklight do |config|
-  
+
     # Ensures that JSON representations of Solr Documents can be retrieved using
     # the path /catalog/:id/raw
     # Please see https://github.com/projectblacklight/blacklight/pull/2006/
@@ -99,7 +99,7 @@ class CatalogController < ApplicationController
       '1970-1979' => { :label => '1970-1979', :fq => "solr_year_i:[1970 TO 1979]" },
       '1960-1969' => { :label => '1960-1969', :fq => "solr_year_i:[1960 TO 1969]" },
       '1950-1959' => { :label => '1950-1959', :fq => "solr_year_i:[1950 TO 1959]" },
-      '1940-1949' => { :label => '1940-1949', :fq => "solr_year_i:[1940 TO 1949]" },    
+      '1940-1949' => { :label => '1940-1949', :fq => "solr_year_i:[1940 TO 1949]" },
       '1930-1939' => { :label => '1930-1939', :fq => "solr_year_i:[1930 TO 1939]" },
       '1920-1929' => { :label => '1920-1929', :fq => "solr_year_i:[1920 TO 1929]" },
       '1910-1919' => { :label => '1910-1919', :fq => "solr_year_i:[1910 TO 1919]" },
@@ -163,7 +163,7 @@ class CatalogController < ApplicationController
       if: proc { |_, _, doc| doc.external_url },
       helper_method: :render_references_url
     )
-    
+
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -262,6 +262,9 @@ class CatalogController < ApplicationController
     config.add_show_tools_partial :exports, partial: 'exports', if: proc { |_context, _config, options| options[:document] }
     config.add_show_tools_partial :data_dictionary, partial: 'data_dictionary', if: proc { |_context, _config, options| options[:document] }
 
+    # Custom tools for GeoData@WI
+    config.add_show_tools_partial(:citation)
+
     # Configure basemap provider for GeoBlacklight maps (uses https only basemap
     # providers with open licenses)
     # Valid basemaps include:
@@ -278,7 +281,7 @@ class CatalogController < ApplicationController
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
-    
+
 
   end
 

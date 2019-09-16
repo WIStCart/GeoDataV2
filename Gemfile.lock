@@ -92,6 +92,7 @@ GEM
       launchy
     childprocess (2.0.0)
       rake (< 13.0)
+    chronic (0.10.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -379,6 +380,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.4.0)
   capybara (>= 2.15)
   capybara-screenshot
+  chronic
   coffee-rails (~> 4.2)
   devise
   devise-guests (~> 0.6)
