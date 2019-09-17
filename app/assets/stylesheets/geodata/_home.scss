@@ -3,6 +3,11 @@
   [data-map="home"] {
      height: 100% !important;
   }
+
+  // The map needs a z-index so search suggestions render over the top of the map zoom controls
+  #map {
+    z-index:5;
+  }
 }
 
 // icons used on home page
@@ -35,4 +40,3 @@
 .card {
     margin-bottom: 2em;
 }
-
