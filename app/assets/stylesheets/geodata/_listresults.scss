@@ -1,0 +1,31 @@
+// List view results
+#documents {
+  .media {
+    img,span.icon.square {
+      span.blacklight-icons {
+        min-width: 4rem;
+        max-width: 4rem;
+        padding-left: 1rem;
+      }
+    }
+    span.icon.square svg {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+
+  span.list-view.document-counter {
+    display:inline-block;
+    float:left;
+    position:relative;
+    top:1rem;
+    font-weight:500;
+    min-width:1rem;
+  }
+
+  .view-type-group {
+    .caption {
+      position:inherit;
+    }
+  }
+}

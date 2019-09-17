@@ -7,6 +7,12 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
 
+    # Map views
+    config.add_results_collection_tool(:view_type_group)
+    config.view.mapview.partials = [:index]
+    config.view['split'].title = "List view"
+    config.view['mapview'].title = "Map view"
+
     # Ensures that JSON representations of Solr Documents can be retrieved using
     # the path /catalog/:id/raw
     # Please see https://github.com/projectblacklight/blacklight/pull/2006/
