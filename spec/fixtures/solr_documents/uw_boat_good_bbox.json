@@ -1,0 +1,22 @@
+{
+  "geoblacklight_version": "1.0",
+  "dc_identifier_s": "WIDNR_ba31a86f566241bf9d127597271ac71c_8",
+  "dc_title_s": "Public Boat Access Sites, WI DNR",
+  "dc_description_s": "This dataset is maintained by Wisconsin Department of Natural Resources.  It is a compilation of public sites where boats can be legally launched into public waters in Wisconsin.  It includes locations and data for both ramp and carry-in (canoe/kayak) launch sites throughout the state.  These public launch sites are owned and maintained by State government (i.e. DNR, DOT, etc.) and local municipalities.  No privately-owned sites are included in this database.This dataset is continually being updated and added to; this item displays the most current edits, however it may contain errors or omissions.",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Wisconsin Department of Natural Resources",
+  "layer_slug_s": "WIDNR_ba31a86f566241bf9d127597271ac71c_8",
+  "dc_format_s": "File",
+  "dc_language_s": "English",
+  "dct_isPartOf_sm": [
+    "Wisconsin Open Data Sites"
+  ],
+  "dc_creator_sm": [
+    "Wisconsin Department of Natural Resources"
+  ],
+  "dc_type_s": "Dataset",
+  "solr_geom": "ENVELOPE(-92.7246, -86.7692, 46.9049, 42.4761)",
+  "solr_year_i": 2019,
+  "dct_references_s": "{\"http://schema.org/url\":\"http://data-wi-dnr.opendata.arcgis.com/datasets/ba31a86f566241bf9d127597271ac71c_8\",\"http://schema.org/downloadUrl\":\"http://data-wi-dnr.opendata.arcgis.com/datasets/ba31a86f566241bf9d127597271ac71c_8.zip\"}",
+  "uw_notice_s": "This dataset was automatically cataloged from the author's Open Data Portal. In some cases, publication year and bounding coordinates shown here may be incorrect.  Please check the 'More details at' link for additional information."
+}
