@@ -2,7 +2,7 @@
 	<div class="uw-footer-content">
 		<div class="uw-logo">
         <a href="http://www.wisc.edu" aria-label="Link to UW-Madison website" target="_blank">
-        <%= image_tag("uw-logo-mono.svg") %>           
+        <%= image_tag("uw-logo-mono.svg") %>
          </a>
 		</div>
         <div>
@@ -12,7 +12,7 @@
                     <li><%= link_to 'Help', "/pages/help" %></li>
                     <li><%= link_to 'Contribute', "/pages/contribute" %></li>
                     <li><%= link_to 'Credits', "/pages/credits" %></li>
-                </ul>              
+                </ul>
         </div>
         <div>
             <h3 class="uw-footer-header">Partners</h3>
@@ -24,9 +24,9 @@
                     <li><a href="https://legis.wisconsin.gov/ltsb/gis/" target="_blank">Wisconsin LTSB GIS Services</a></li>
                     <li><a href="https://www.seagrant.wisc.edu/" target="_blank">Wisconsin Sea Grant Institute</a></li>
                     <li><a href="https://wisconsinview.org" target="_blank">WisconsinView</a></li>
-                    
-                </ul>              
-        </div>       			
+
+                </ul>
+        </div>
         <div class="uw-footer-contact">
             <h3 class="uw-footer-header">Contact Us</h3><ul class="uw-contact-list">
             <li class="uw-contact-item uw-contact-address">GeoData@Wisconsin<br>
@@ -35,7 +35,45 @@
         Madison, WI 53706 </li>
             <li class="uw-contact-item">Email: <a href="mailto:geodata@sco.wisc.edu">geodata@sco.wisc.edu</a></li>
             <li class="uw-contact-item">Phone: <a href="tel:608-262-3065">608-262-3065</a></li>
-        </div>		
-   </div> 
-   <div class="copyright">&copy; <%= Date.current.year %> Board of Regents of the <a href="http://www.wisconsin.edu/" target="_blank">University of Wisconsin System</a></div>  
+        </div>
+   </div>
+   <div class="copyright">&copy; <%= Date.current.year %> Board of Regents of the <a href="http://www.wisconsin.edu/" target="_blank">University of Wisconsin System</a></div>
 </footer>
+
+<script>
+  var map;
+
+  function createmap (){
+    bounds = L.latLngBounds(
+      L.latLng(48.5, -82),
+      L.latLng(41, -97.5)
+    );
+
+    map = L.map('map', {
+      center: bounds.getCenter(),
+      zoom: 7,
+      minZoom: 7,
+      maxZoom: 18,
+      maxBounds: bounds
+    })
+
+    satelliteBasemap = L.tileLayer('https://api.mapbox.com/styles/v1/wistcart/cj015vzhy009i2ss11iyjstb0/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoid2lzdGNhcnQiLCJhIjoiY2l6NjB2enI5MDZkYjMyb2Frc3RtcmFzZSJ9.U_x2EJHkCo_RWMlYunR-7g', {
+  		attribution: 'Imagery Â© <a href="https://mapbox.com">Mapbox</a>',
+  	}).addTo(map);
+
+    $(map).addSearchControl({
+      address: true,
+      gazetteer: true,
+      county: true,
+      cityTownVillage: true,
+      latLng: true,
+      twnRngSec: true,
+      twnRng: true,
+      quad: true,
+      position: 'topright',
+      order: ["latLng", "address", "gazetteer", "county", "cityTownVillage", "twnRng", "twnRngSec", "quad"],
+    });
+  };
+
+  createmap();
+</script>

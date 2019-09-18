@@ -13,7 +13,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.precompile += %w( favicon.ico )
+Rails.application.config.assets.precompile += %w( favicon.ico searchcontrol.css )
 
-Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')
-Rails.application.config.assets.precompile += %w( analytics.js )
+Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'javascripts')
+
+Rails.application.config.assets.precompile += %w( analytics.js searchcontrol.js)

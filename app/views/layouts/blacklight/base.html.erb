@@ -12,8 +12,24 @@
     <%= opensearch_description_tag application_name, opensearch_catalog_url(format: 'xml') %>
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", media: "all" %>
+
+    <!-- searchControl styles -->
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css">
+    <%= stylesheet_link_tag "searchcontrol", media: "all" %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <%= stylesheet_link_tag "searchcontrol", media: "all" %>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "analytics" %>
+
+    <!-- searchControl behaviors -->
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <%= javascript_include_tag "searchcontrol" %>
+
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
   </head>
