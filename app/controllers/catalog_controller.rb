@@ -2,10 +2,23 @@
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
-
+  include BlacklightAdvancedSearch::Controller
+  include BlacklightRangeLimit::ControllerOverride
   include Blacklight::Catalog
 
   configure_blacklight do |config|
+
+
+    # Advanced config values
+    # default advanced config values
+    config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
+    config.advanced_search[:url_key] ||= 'advanced'
+    config.advanced_search[:query_parser] ||= 'edismax'
+    config.advanced_search[:form_solr_parameters] ||= {}
+    config.advanced_search[:form_solr_parameters]['facet.field'] ||= %W[dct_provenance_s dc_creator_sm]
+    config.advanced_search[:form_solr_parameters]['facet.query'] ||= ''
+    config.advanced_search[:form_solr_parameters]['facet.limit'] ||= -1
+    config.advanced_search[:form_solr_parameters]['facet.sort'] ||= 'index'
 
     # Map views
     config.add_results_collection_tool(:view_type_group)
@@ -112,7 +125,9 @@ class CatalogController < ApplicationController
       '1900-1909' => { :label => '1900-1909', :fq => "solr_year_i:[1900 TO 1909]" },
       '1800s' => { :label => '1800s', :fq => "solr_year_i:[1800 TO 1899]" }
     }, collapse: true
-    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 8
+    config.add_facet_field Settings.FIELDS.YEAR, label: 'Year', limit: 10, collapse: false, all: 'Any year', range: {
+      assumed_boundaries: [1100, 2019]
+    }
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 5, collapse: true
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     #config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
@@ -189,55 +204,50 @@ class CatalogController < ApplicationController
     # solr request handler? The one set in config[:default_solr_parameters][:qt],
     # since we aren't specifying it otherwise.
 
-    config.add_search_field 'all_fields', :label => 'All Fields'
-    # config.add_search_field 'dc_title_ti', :label => 'Title'
-    # config.add_search_field 'dc_description_ti', :label => 'Description'
+    config.add_search_field('all_fields') do |field|
+      field.include_in_advanced_search = false
+      field.label = 'All Fields'
+    end
 
-    # Now we see how to over-ride Solr request handler defaults, in this
-    # case for a BL "search field", which is really a dismax aggregate
-    # of Solr search fields.
+    config.add_search_field('keyword') do |field|
+      field.include_in_simple_select = false
+      field.qt = 'search'
+      field.label = 'Keyword'
+      field.solr_local_parameters = {
+        qf: '$qf',
+        pf: '$pf'
+      }
+    end
 
-    # config.add_search_field('title') do |field|
-    #   # solr_parameters hash are sent to Solr as ordinary url query params.
-    #   field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
+    config.add_search_field('title') do |field|
+      field.include_in_simple_select = false
+      field.qt = 'search'
+      field.label = 'Title'
+      field.solr_local_parameters = {
+        qf: '$title_qf',
+        pf: '$title_pf'
+      }
+    end
 
-    #   # :solr_local_parameters will be sent using Solr LocalParams
-    #   # syntax, as eg {! qf=$title_qf }. This is neccesary to use
-    #   # Solr parameter de-referencing like $title_qf.
-    #   # See: http://wiki.apache.org/solr/LocalParams
-    #   field.solr_local_parameters = {
-    #     :qf => '$title_qf',
-    #     :pf => '$title_pf'
-    #   }
-    # end
+    config.add_search_field('placename') do |field|
+      field.include_in_simple_select = false
+      field.qt = 'search'
+      field.label = 'Place'
+      field.solr_local_parameters = {
+        qf: '$placename_qf',
+        pf: '$placename_pf'
+      }
+    end
 
-    # config.add_search_field('author') do |field|
-    #   field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
-    #   field.solr_local_parameters = {
-    #     :qf => '$author_qf',
-    #     :pf => '$author_pf'
-    #   }
-    # end
-
-    # # Specifying a :qt only to show it's possible, and so our internal automated
-    # # tests can test it. In this case it's the same as
-    # # config[:default_solr_parameters][:qt], so isn't actually neccesary.
-    # config.add_search_field('subject') do |field|
-    #   field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
-    #   field.qt = 'search'
-    #   field.solr_local_parameters = {
-    #     :qf => '$subject_qf',
-    #     :pf => '$subject_pf'
-    #   }
-    # end
-
-    #  config.add_search_field('Institution') do |field|
-    #   field.solr_parameters = { :'spellcheck.dictionary' => 'Institution' }
-    #   field.solr_local_parameters = {
-    #     :qf => '$Institution_qf',
-    #     :pf => '$Institution_pf'
-    #   }
-    # end
+    config.add_search_field('publisher') do |field|
+      field.include_in_simple_select = false
+      field.qt = 'search'
+      field.label = 'Publisher/Creator'
+      field.solr_local_parameters = {
+        qf: '$publisher_qf',
+        pf: '$publisher_pf'
+      }
+    end
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
