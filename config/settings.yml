@@ -11,7 +11,7 @@ CARTO_ONECLICK_LINK: 'http://oneclick.carto.com/'
 GEOMETRY_FIELD: 'solr_geom'
 
 # The bq boost value for spatial search matches within a bounding box
-BBOX_WITHIN_BOOST: '10'
+BBOX_WITHIN_BOOST: '15'
 
 # The bf boost value for overlap ratio
 OVERLAP_RATIO_BOOST: '2'

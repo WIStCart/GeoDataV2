@@ -6,7 +6,13 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
 
   configure_blacklight do |config|
-  
+
+    # Map views
+    config.add_results_collection_tool(:view_type_group)
+    config.view.mapview.partials = [:index]
+    config.view['split'].title = "List view"
+    config.view['mapview'].title = "Map view"
+
     # Ensures that JSON representations of Solr Documents can be retrieved using
     # the path /catalog/:id/raw
     # Please see https://github.com/projectblacklight/blacklight/pull/2006/
@@ -85,9 +91,9 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 6, collapse: false
+    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 5, collapse: false
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Created By', :limit => 5, collapse: false
-    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 6, collapse: true
+    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 5, collapse: false
     config.add_facet_field 'time_period', :label => 'Time Period', :query => {
       'Future' => { :label => 'Future', :fq => "solr_year_i:[#{Time.now.year + 1} TO 3000]"},
       '2015-present' => { :label => '2015-present', :fq => "solr_year_i:[2015 TO #{Time.now.year}]"},
@@ -99,7 +105,7 @@ class CatalogController < ApplicationController
       '1970-1979' => { :label => '1970-1979', :fq => "solr_year_i:[1970 TO 1979]" },
       '1960-1969' => { :label => '1960-1969', :fq => "solr_year_i:[1960 TO 1969]" },
       '1950-1959' => { :label => '1950-1959', :fq => "solr_year_i:[1950 TO 1959]" },
-      '1940-1949' => { :label => '1940-1949', :fq => "solr_year_i:[1940 TO 1949]" },    
+      '1940-1949' => { :label => '1940-1949', :fq => "solr_year_i:[1940 TO 1949]" },
       '1930-1939' => { :label => '1930-1939', :fq => "solr_year_i:[1930 TO 1939]" },
       '1920-1929' => { :label => '1920-1929', :fq => "solr_year_i:[1920 TO 1929]" },
       '1910-1919' => { :label => '1910-1919', :fq => "solr_year_i:[1910 TO 1919]" },
@@ -107,11 +113,11 @@ class CatalogController < ApplicationController
       '1800s' => { :label => '1800s', :fq => "solr_year_i:[1800 TO 1899]" }
     }, collapse: true
     config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 8
-    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 6, collapse: true
+    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 5, collapse: true
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     #config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
+    config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 5
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -163,7 +169,7 @@ class CatalogController < ApplicationController
       if: proc { |_, _, doc| doc.external_url },
       helper_method: :render_references_url
     )
-    
+
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -262,6 +268,9 @@ class CatalogController < ApplicationController
     config.add_show_tools_partial :exports, partial: 'exports', if: proc { |_context, _config, options| options[:document] }
     config.add_show_tools_partial :data_dictionary, partial: 'data_dictionary', if: proc { |_context, _config, options| options[:document] }
 
+    # Custom tools for GeoData@WI
+    config.add_show_tools_partial(:citation)
+
     # Configure basemap provider for GeoBlacklight maps (uses https only basemap
     # providers with open licenses)
     # Valid basemaps include:
@@ -278,7 +287,7 @@ class CatalogController < ApplicationController
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
-    
+
 
   end
 

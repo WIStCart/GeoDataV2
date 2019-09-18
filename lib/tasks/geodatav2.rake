@@ -5,8 +5,8 @@ task :ci do
 
   SolrWrapper.wrap(shared_solr_opts.merge(port: 8985, instance_dir: 'tmp/geodata-core-test')) do |solr|
     solr.with_collection(name: "geodata-core-test", dir: Rails.root.join("solr", "conf").to_s) do
-      system 'RAILS_ENV=test rake geoblacklight:index:seed'
-      Rake::Task['spec'].invoke
+      system 'RAILS_ENV=test bundle exec rake geoblacklight:index:seed'
+      system 'RAILS_ENV=test bundle exec rails test:system test' || success = false
     end
   end
 end
