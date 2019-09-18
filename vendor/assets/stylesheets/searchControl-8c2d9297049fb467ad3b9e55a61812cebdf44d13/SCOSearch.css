@@ -1,0 +1,92 @@
+/* Styling obtained from CadastralSpecialServices */
+/* https://gis.blm.gov/arcgis/rest/services/Cadastral/BLM_Natl_PLSS_CadNSDI/MapServer/exts/CadastralSpecialServices/GetLatLon */
+
+BODY {
+    PADDING-LEFT: 22px; PADDING-RIGHT: 22px; BACKGROUND: #fff; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; min-width: 780px;
+  }
+  HTML {
+    PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: #fff; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; min-width: 780px;
+  }
+  CODE {
+      FONT-SIZE: 1.3em; FONT-FAMILY: serif
+  }
+  
+  TD {
+    PADDING-RIGHT: 11px; PADDING-LEFT: 0px; FONT-SIZE: 0.90em; PADDING-BOTTOM: 5px; MARGIN: 0px 0px 3px; PADDING-TOP: 3px; 
+  }
+  
+  H2 {
+    MARGIN-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 1.2em
+  }
+  H3 {
+    FONT-WEIGHT: bold; FONT-SIZE: 1.25em; MARGIN-BOTTOM: 0px; 
+  }
+  LI {
+    PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 3px; PADDING-TOP: 0px; 
+  }
+  
+  .rbody {
+       FONT-SIZE:0.9em; MARGIN-LEFT: 0px; 
+  }
+  
+  .apiref {
+    FONT-SIZE: 0.6em; MARGIN: 0px; PADDING: 0px;
+  }
+  
+  .whiteTd {
+    BACKGROUND-COLOR: #FFFFFF;
+  }
+  
+  .breadcrumbs {
+    PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 0.8em; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; MARGIN: 0px 0px 3px; PADDING-TOP: 0px;
+  }
+  
+  .userTable {
+    FONT-SIZE: 0.80em;
+  }
+  
+  .navTable {
+    PADDING-BOTTOM: 5px; MARGIN: 0px 0px 3px; PADDING-TOP: 0px; BORDER-BOTTOM: #000 1px solid; BORDER-TOP: #000 1px solid; BACKGROUND-COLOR: #E5EFF7;
+  }
+  
+  .loginTable {
+      PADDING: 5px; MARGIN: 10px 0px 3px; BORDER: #000 1px solid; BACKGROUND-COLOR: #E5EFF7;
+  }
+  .formTable {
+    PADDING: 5px; MARGIN: 10px 0px 3px; BORDER: #000 1px solid; BACKGROUND-COLOR: #E5EFF7;
+  }
+  .infoTable {
+    FONT-SIZE: 1.1em; PADDING: 5px; MARGIN: 10px 0px 3px; BORDER: #000 1px solid; BACKGROUND-COLOR: #E5EFF7;
+  }
+  
+  .adminNavTable {
+      PADDING-BOTTOM: 5px; MARGIN: 0px 0px 3px; PADDING-TOP: 0px; BORDER-BOTTOM: #000 1px solid; BORDER-TOP: #000 1px solid; BACKGROUND-COLOR: #F7EFE5;
+  }
+  
+  .adminLoginTable {
+      PADDING: 5px; MARGIN: 10px 0px 3px; BORDER: #000 1px solid; BACKGROUND-COLOR: #F7EFE5;
+  }
+  .adminFormTable {
+    PADDING: 5px; MARGIN: 10px 0px 3px; BORDER: #000 1px solid; BACKGROUND-COLOR: #F7EFE5;
+  }
+  .adminInfoTable {
+    FONT-SIZE: 1.1em; PADDING: 5px; MARGIN: 10px 0px 3px; BORDER: #000 1px solid; BACKGROUND-COLOR: #F7EFE5;
+  }
+  
+  .help {
+      PADDING-RIGHT: 11px; PADDING-LEFT: 0px; FONT-SIZE: 0.70em; PADDING-BOTTOM: 5px; MARGIN: 0px 0px 3px; PADDING-TOP: 3px; 
+  }
+  .titlecell {
+      PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 1.0em; FONT-WEIGHT:bold; PADDING-BOTTOM: 5px; MARGIN: 0px 0px 3px; PADDING-TOP: 3px; 
+  }
+  
+  .srsMain {
+    FONT-SIZE: 0.8em; FONT-WEIGHT: bold; BORDER-TOP: #000 1px solid; BACKGROUND-COLOR: #E5EFF7;
+  }
+  .srTitle {  FONT-SIZE: 1.2em; }
+  .srContent {  FONT-SIZE: 1.0em; }
+  .srLinks {  FONT-SIZE: 0.8em; }
+  .srInfo {  FONT-SIZE: 0.8em; COLOR:#494; }
+  
+  
+  

@@ -1,0 +1,45 @@
+  @charset "utf-8";
+/* CSS Document */
+
+table, th, td {
+  border: 1px solid #c2c4ba;
+  border-spacing: 0px;
+  /* padding: 2px 5px 0px 5px; */
+  vertical-align: top;
+  font-size: 1em;
+}
+
+table th{
+background-color: #EEEEEE;
+}
+
+body{
+	/* padding-top:			86px; */
+	font-family:			Verdana,Arial,Helvetica,sans-serif;
+	font-size:				.8em;
+	line-height:			1.5em;
+	/*overflow:				hidden;*/
+}
+
+#description{
+  margin-left: 20px;
+}
+
+.section p{
+  margin-left: 20px;
+  line-height: 1em;
+  /* font-size:				.8em; */
+}
+
+pre {
+  margin-left: 15px;
+  border: 1px dashed #c2c4ba;
+  padding: 10px;
+  padding-bottom: 25px;
+  font-size: 110%;
+  line-height: 1.2em;
+  background-color: #EEEEEE;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 95%;
+}

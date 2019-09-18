@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <link href='https://dev.sco.wisc.edu/searchControl/Joe/searchControl/apireference.css' rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div> 
+            <h2>Description</h2>
+            <p id="description">
+                This api is designed to query different services (Carto, LTSB, etc) in order to return the bounding box and/or coordinates for a queried feature.  Features to be queried include an address, place, municipality, and PLSS.
+            </p>
+        </div>
+        <div> 
+            <h2>Request Parameters</h2>
+            <div>
+                <table class = "table">
+                    <colgroup width="200pt"></colgroup>
+                    <colgroup width="*"></colgroup>
+                    <tbody>
+                        <tr purpose="thead">
+                            <th class="th" purpose="th" rowspan="1" colspan="1">
+                                <p>Parameter</p>
+                            </th>
+                            <th class="th" purpose="th" rowspan="1" colspan="1">
+                                <p>Details</p>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <span class="usertext">streetAddress</span>
+                            </td>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <p>Description: A search parameter for the single line address search.</p>
+                                <p>Values: WI Street Address</p>
+                                <p>Example: streetAddress=445 W Johnson St Madison WI 53703</p>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <span class="usertext">gazetteer</span>
+                            </td>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <p>Description: A search parameter for the gazetteer search.</p>
+                                <p>Value: Place name</p>
+                                <p>Example: gazetteer=East Towne Mall</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <span class="usertext">county</span>
+                            </td>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <p>Description: A search parameter for the county search.  Only valid for WI counties.</p>
+                                <p>Value: WI County name</p>
+                                <p>Example: county=Adams</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <span class="usertext">cityTownVillage</span>
+                            </td>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <p>Description: A search parameter for the city, town, village search.</p>
+                                <p>Value: Municipality name</p>
+                                <p>Example: cityTownVillage=Washington</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <span class="usertext">township</span>
+                            </td>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <p>Description: A search parameter for PLSS and PLSS-Section search.</p>
+                                <p>Value: Township number (1-53)</p>
+                                <p>Example: township=5</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <span class="usertext">range</span>
+                            </td>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <p>Description: A search parameter for PLSS and PLSS-Section search.</p>
+                                <p>Value: Range number (1-31)</p>
+                                <p>Example: range=3</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <span class="usertext">dir</span>
+                            </td>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <p>Description: A search parameter for PLSS and PLSS-Section search.</p>
+                                <p>Value: Direction (E or W)</p>
+                                <p>Example: dir=E</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <span class="usertext">sec</span>
+                            </td>
+                            <td purpose="entry" rowspan="1" colspan="1">
+                                <p>Description: A search parameter for PLSS-Section search.</p>
+                                <p>Value: Section number (1-36)</p>
+                                <p>Example: sec=1</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="section" purpose="section"><h2>Example usage</h2>
+                <p>URL for the root directory on development server:</p>
+                <p>
+                    <a target="_blank" class="xref" href="https://dev.sco.wisc.edu/searchControl/Joe/searchControl/SCOSearch.php" rel="https://dev.sco.wisc.edu/searchControl/Joe/searchControl/SCOSearch.php">https://dev.sco.wisc.edu/searchControl/Joe/searchControl/SCOSearch.php</a>
+                </p>
+                <p>
+                    Example usage for city, town, and village search: 
+                </p><p>
+                        <a target="_blank" class="xref" href="https://dev.sco.wisc.edu/searchControl/Joe/searchControl/SCOSearch.php?cityTownVillage=port+washington" rel="https://dev.sco.wisc.edu/searchControl/Joe/searchControl/SCOSearch.php?cityTownVillage=port+washington">https://dev.sco.wisc.edu/searchControl/Joe/searchControl/SCOSearch.php?cityTownVillage=port+washington</a>
+                </p>
+            </div>
+            <div class="section" purpose="section"><h2>JSON response syntax</h2><p></p>
+                <div class="codeblock" purpose="codeblock">
+                    <div class="codeblockdesc" purpose="codeblockdesc">
+                    
+                    </div>
+                    <div class="highlight"><pre><code>
+    {
+        "rows":[
+            {
+                "display_name": "",
+                "coordinates": [lat,lng],
+                "bbox": {
+                    "sw": [lat,lng],
+                    "ne": [lat,lng]
+                }
+            },
+            {
+                "display_name": "",
+                "coordinates": [lat,lng],
+                "bbox": {
+                    "sw": [lat,lng],
+                    "ne": [lat,lng]
+                }
+            }
+        ]
+    }</code></pre></div>
+        
+                </div>
+            <p></p></div>
+            <div class="section" purpose="section"><h2>Example JSON response</h2><p></p>
+                <div class="codeblock" purpose="codeblock">
+                    <div class="codeblockdesc" purpose="codeblockdesc">
+                    
+                    </div>
+                    <div class="highlight"><pre><code>
+    {
+        "rows":[
+            {
+                "display_name": "Port Washington City, Ozaukee County",
+                "coordinates": [43.38788651496,-87.885514700978],
+                "bbox": {
+                    "sw": [43.351145890915,-87.916200390725],
+                    "ne": [43.424627139005,-87.85482901123]
+                }
+            },
+            {
+                "display_name": "Port Washington Town, Ozaukee County",
+                "coordinates": [43.412249885744,-87.865521925926],
+                "bbox": {
+                    "sw": [43.368280984618,-87.920851695066],
+                    "ne": [43.456218786869,-87.810192156786]
+                }
+            }
+        ]
+    }</code></pre></div>
+        
+                </div>
+            <p></p></div>
+        </div>
+    </body>
+</html>

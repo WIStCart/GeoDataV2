@@ -1,0 +1,425 @@
+/*
+#08090A - smoky black
+#F4F7F5 - cultured [white]
+#0D3B66 - dark midnight blue
+
+
+#C5050C - Red (UW-Madison)
+#0479A8- Blue(UW-Madison)
+#282728 - Dark Grey (UW-Madison)
+
+From AP Catalog:
+$fontFamily-body: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$fontFamily-title: "Verlag", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+*/
+
+body {
+        padding: 0;
+        margin: 0;
+}
+
+.searchControl-container {
+	box-shadow: 0 1px 5px rgba(0,0,0,.65);
+	border-radius: 4px;
+	
+	background-position: 50% 50%;
+    background-repeat: no-repeat;
+	display: block;
+	
+	background-color: #fff;
+
+	/* font: 700 18px 'Lucida Console',Monaco,monospace; */
+    text-indent: 1px;
+}
+
+.dropdown-menu {
+	overflow: auto;
+	max-height: 500px;
+}
+
+.searchOptionHeader{
+	cursor: pointer;
+	padding-left: 15px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.accordion {
+	z-index: 1000001;
+}
+
+/******** Card styling *******/
+
+.card {
+	border: 1px solid rgb(253, 253, 253) !important;
+}
+
+
+/******** Search Icon *******/
+
+.searchControl-container {
+	background-color: #0479A8;
+}
+
+#searchText-div {
+	font: 700 18px 'Arial',Monaco,monospace;
+    /* width: 26px;
+    height: 26px; */
+    line-height: 26px;
+    text-align: center;
+    text-decoration: none;
+	color: #FFF;
+	/* background-color: #0479A8; */
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#searchText {
+	/* width: 18px;
+	height: 19px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+}
+
+#searchText-div:hover {
+	cursor:pointer;
+}
+
+/******** Search Menu *******/
+
+#searchLocation-div {
+	font-weight: bold;
+}
+
+.card-header {
+	padding: 0px !important;
+	/* If you want to change the color of the headers */
+	/* background-color: rgba(0,0,0,.03) !important; */
+	background-color: white !important;
+	border-bottom: 1px solid white !important;
+}
+
+
+#menu-div {
+	display: none;
+	width: 360px;
+	background-color: #0479A8 !important;
+	border-radius: 4px;
+	z-index: 1000002;
+	/* z-index: 99999999; CARTO logo z-index is 999,999 */
+}
+
+.fa-times-circle {
+	color: #FFF;
+	padding-top: 8px;
+	padding-right: 5px;
+}
+
+.fa-chevron-circle-right {
+	color: #0479A8;
+	/* padding-right: 5px; */
+	height: 20px;
+	width: 20px;
+}
+
+
+/******** Menu X *******/
+
+#searchLocation-div {
+	display: inline-block;
+	width: 70%;
+	margin-top: 7px;
+	margin-left: 3px;
+	color: #fff !important;
+}
+
+#timesIcon-div {
+	height: 30px;
+	width: 30px;
+	float: right;
+}
+
+#timesIcon {
+	float: right;
+	margin-top: 7px;
+	margin-right: 7px;
+}
+
+#timesIcon:hover {
+	cursor:pointer;
+}
+
+.sexy_line{ 
+    display:block;
+    border:none;
+    color:white;
+    height:1px;
+    /* background:rgb(1, 61, 88); */
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 250, from(rgb(194, 198, 206)), to(#fff));
+}
+
+/******** Search Results *******/
+
+.results{
+	/* text-align: center; */
+	max-height: 220px;
+	overflow-y: auto;
+	/* padding-bottom: 40px; */
+}
+
+.result {
+	/* display: inline-block; */
+	/* margin-top: 5px; */
+	padding: 3px 3px 3px 0px;
+	/* border-bottom: 1px solid #000; */
+	cursor: pointer;
+	font-size: 1.2em;
+	text-align: left;
+}
+
+/* .bullet {
+	display: inline-block;
+	width: 5%;
+	height: 100%;
+}
+
+.resultText {
+	display: inline-block;
+	width: 90%;
+} */
+
+/******** Latitude Longitude Search *******/
+
+.mb-0 {
+	margin: 0;
+}
+
+#latLngResults {
+	text-align: center;
+}
+
+/******** Address Search *******/
+
+#addressError {
+	text-align: center;
+}
+
+#addressResults {
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+
+/******** Gazetteer Search *******/
+
+#gazetteerResults {
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+#emailHelp {
+	font-size: 1em;
+}
+
+
+/******** County Search *******/
+.ui-selectmenu-open {
+	z-index: 1000 !important;
+	/* height: 400px; */
+}
+
+#countySelect-button {
+	margin-left: 20px;
+}
+
+/******** City Town Village Search *******/
+
+#municipalityHelp{
+	font-size: 1em;
+}
+
+#cityTownVillageResults {
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+
+/******** Uninc Places Search *******/
+
+
+/******** PLSS Search *******/
+
+/* #townSelect1-button {
+	margin-left: 20px;
+} */
+
+/******** PLSS SCO Search *******/
+
+#townSelect3-button {
+	margin-left: 20px;
+}
+
+/******** PLSS Sec Search *******/
+
+#townSelect4-button {
+	margin-left: 20px;
+}
+
+
+/**************** Mobile Styling *****************/
+
+/* @media screen and (max-width: 1090px) {
+	.results {
+		margin-top: 0px;
+		padding-bottom: 60px;
+	}
+} */
+
+/******** Defining horizontal center for mobile search control *********/
+
+.leaflet-verticalcenter {
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    top: 50%; /* possible because the placeholder's parent is the map */
+    transform: translateY(-50%); /* using the CSS3 Transform technique */
+    /* padding-top: 10px; */
+}
+
+.leaflet-verticalcenter .leaflet-control {
+    margin-bottom: 10px;
+}
+
+.leaflet-horizontalcenter {
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    left: 50%; /* possible because the placeholder's parent is the map */
+    transform: translateX(-50%); /* using the CSS3 Transform technique */
+    /* padding-left: 10px; */
+}
+
+.leaflet-horizontalcenter .leaflet-control {
+    margin-right: 10px;
+}
+
+/* .card-body {
+	overflow-y: auto;
+} */
+
+/******** Sliders *********/
+.contentSlider {
+    width:100%;
+    height:0px;
+    position:absolute;
+    bottom:0;
+    left:-100%;
+    background-color:#fff;
+	color:#000;
+	overflow-y: auto;
+	/* min-height: 311px; */
+	z-index: 2147483646;
+}
+
+.resultsSlider {
+    width:100%;
+    height:0px;
+    position:absolute;
+    bottom:0;
+    left:-100%;
+    background-color:#fff;
+	color:#000;
+	/* z-index: 1050; */
+	/* min-height: 311px; */
+	z-index: 2147483646;
+}
+
+/******** Slider header *********/
+.sliderHeader {
+	width:100%;
+	height:38px;
+	background-color:#0479A8;
+	color:#fff;
+}
+
+/******** Back arrow within slider *********/
+.backArrow {
+	display: inline-block !important;
+	margin-top: 7px;
+	margin-left: 7px;
+	color: #FFF;
+}
+
+/******** Silder header times symbol *********/
+.headerTimes-div {
+	height: 30px;
+	width: 30px;
+	float: right;
+}
+
+.headerTimes {
+	/* top:0px; */
+	margin-top: 7px;
+}
+
+/******** Slider title *********/
+.contentSliderTitle {
+	display: inline-block;
+	/* width: 80%; */
+	width: calc(100% - 64px);
+	text-align: center;
+}
+
+.resultsSliderTitle {
+	display: inline-block;
+	/* width: 80%; */
+	width: calc(100% - 64px);
+	text-align: center;
+}
+
+/******** Slider title *********/
+.slider-div {
+	padding-top: 20px;
+}
+
+/******** Mobile content *********/
+.mobileContent {
+	display: inline-block !important;
+	width: 100% !important;
+	margin: auto !important;
+	text-align: center !important;
+	padding: 15px 0px 0px 0px !important;
+	overflow-y: auto !important;
+}
+
+/******** Menu toggle button *********/
+
+/* #menuToggle {
+	background-color: #0479A8;
+	color: white;
+	width: 15px;
+	height: 15px;
+	z-index: 10000000000;
+} */
+
+/******** Override placeholder text size *********/
+
+#dmsValues ::-webkit-input-placeholder {
+	font-size: 12px !important;
+ }
+ 
+ #dmsValues :-moz-placeholder { /* Firefox 18- */
+	   font-size: 12px !important;
+ }
+ 
+ #dmsValues ::-moz-placeholder {  /* Firefox 19+ */
+	   font-size: 12px !important;
+ }
+ 
+ #dmsValues :-ms-input-placeholder {
+	   font-size: 12px !important;
+ }
