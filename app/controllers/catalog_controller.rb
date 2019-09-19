@@ -15,7 +15,7 @@ class CatalogController < ApplicationController
     config.advanced_search[:url_key] ||= 'advanced'
     config.advanced_search[:query_parser] ||= 'edismax'
     config.advanced_search[:form_solr_parameters] ||= {}
-    config.advanced_search[:form_solr_parameters]['facet.field'] ||= %W[dct_provenance_s dc_creator_sm]
+    config.advanced_search[:form_solr_parameters]['facet.field'] ||= %W[uw_provenance_advanced_search_s uw_creator_advanced_search_sm]
     config.advanced_search[:form_solr_parameters]['facet.query'] ||= ''
     config.advanced_search[:form_solr_parameters]['facet.limit'] ||= -1
     config.advanced_search[:form_solr_parameters]['facet.sort'] ||= 'index'
@@ -107,6 +107,11 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 5, collapse: false
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Created By', :limit => 5, collapse: false
     config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Held By', limit: 5, collapse: false
+
+    # Advanced search - Work around for facet.limit bug
+    config.add_facet_field 'uw_creator_advanced_search_sm', :label => 'Created By', show: false
+    config.add_facet_field 'uw_provenance_advanced_search_s', label: 'Held By', show: false
+
     config.add_facet_field 'time_period', :label => 'Time Period', :query => {
       'Future' => { :label => 'Future', :fq => "solr_year_i:[#{Time.now.year + 1} TO 3000]"},
       '2015-present' => { :label => '2015-present', :fq => "solr_year_i:[2015 TO #{Time.now.year}]"},
@@ -299,7 +304,6 @@ class CatalogController < ApplicationController
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
-
 
   end
 
