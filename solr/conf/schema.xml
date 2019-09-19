@@ -149,8 +149,8 @@
     <!-- Adding field type for bboxField that enables, among other things, overlap ratio calculations -->
     <fieldType name="bbox" class="solr.BBoxField"
            geo="true" distanceUnits="kilometers" numberType="pdouble" />
-    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>   
-   
+    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+
 
   </types>
 
@@ -194,7 +194,11 @@
   <copyField source="dct_provenance_s" dest="suggest"/>
   <copyField source="dc_subject_sm" dest="suggest"/>
   <copyField source="dct_spatial_sm" dest="suggest"/>
-  
+
   <!-- for bbox value -->
   <copyField source="solr_geom" dest="solr_bboxtype"/>
+
+  <!-- for advanced search -->
+  <copyField source="dc_creator_sm" dest="uw_creator_advanced_search_sm"/>
+  <copyField source="dct_provenance_s" dest="uw_provenance_advanced_search_s"/>
 </schema>
