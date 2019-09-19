@@ -16,4 +16,8 @@ class AdvancedSearchPageTest < ApplicationSystemTestCase
 
     assert_equal page.all('select#f1 option').map(&:value), %w(keyword title placename publisher)
   end
+
+  def test_facet_counts
+    assert_operator page.all('select#uw_creator_advanced_search_sm option', visible: false).size, :>, 10
+  end
 end
