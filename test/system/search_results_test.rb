@@ -60,4 +60,16 @@ class SearchResultsTest < ApplicationSystemTestCase
     assert page.has_selector?("div#documents.map-view")
     assert page.has_selector?("div#map")
   end
+
+  def test_sort_options
+    visit '/?q=water'
+    click_button("Sort by Relevance")
+    within("#sort-dropdown") do
+      assert page.has_content?("Relevance")
+      assert page.has_content?("Year (Newest first)")
+      assert page.has_content?("Year (Oldest first)")
+      assert page.has_content?("Title (A-Z)")
+      assert page.has_content?("Title (Z-A)")
+    end
+  end
 end
