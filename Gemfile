@@ -64,6 +64,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'blacklight', '~> 7.0'
+gem 'blacklight_advanced_search', git: 'https://github.com/projectblacklight/blacklight_advanced_search.git', :branch => 'master'
+gem 'blacklight_range_limit', '~> 7.0.0'
+gem 'chosen-rails' #  jquery multiselect plugin for advanced search
+
 gem 'geoblacklight', '~> 2.2.1'
 gem 'rsolr', '>= 1.0', '< 3'
 gem 'bootstrap', '~> 4.0'

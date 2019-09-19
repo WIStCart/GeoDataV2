@@ -38,3 +38,10 @@
 .form-control {
     border-radius: .5rem 0% 0% .5rem !important;
 }
+
+div.navbar-search {
+  button#search {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}

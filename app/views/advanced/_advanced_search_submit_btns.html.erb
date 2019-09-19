@@ -1,0 +1,7 @@
+<div class="sort-buttons pull-left">
+  <%= hidden_field_tag(:search_field, blacklight_config.advanced_search[:url_key]) %>
+</div>
+
+<div class="submit-buttons pull-right">
+  <%= submit_tag t('blacklight_advanced_search.form.search_btn'), :class=>'btn btn-primary advanced-search-submit', :id => "advanced-search-submit" %>
+</div>
