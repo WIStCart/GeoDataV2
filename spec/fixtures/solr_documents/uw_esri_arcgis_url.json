@@ -22,5 +22,5 @@
 "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://gisdata.wisc.edu/public/WI_Elementary_School_Dist_2018.zip\",\"http://schema.org/url\":\"https://wi-dpi.maps.arcgis.com/\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://services8.arcgis.com/o4NJgD3NfeHnWy06/ArcGIS/rest/services/WI_Elementary_School_Districts_2018/FeatureServer/0\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://gisdata.wisc.edu/public/metadata/WI_Elementary_School_Dist_2018_Fixture.xml\"}",
 "solr_geom": "ENVELOPE(-90.045641, -87.764274, 46.29993, 42.479274)",
 "uw_supplemental_s": "Augmented original metadata with UW-Madison specific elements. Archived dataset at UW-Madison. [In 2018, there were two (2) reorganizations that involved elementary school districts. One reorganization was a consolidation in Washington County of the Friess Lake School District and the Richfield Jt. 1 School Districts and the creation of the Holy Hill School District which comprises the total territory of the two former elementary districts. The other reorganization took place in Iron County and involved a small parcel transfer from Hurley School District (unified) to North Lakeland School District (elementary) and Lakeland UHS (secondary).]",
-"uw_notice_s": ""
+"uw_notice_s": "Example notice statement here."
 }

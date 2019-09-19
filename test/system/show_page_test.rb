@@ -40,4 +40,12 @@ class ShowPageTest < ApplicationSystemTestCase
     assert page.has_content?("Downloads")
     assert page.has_link?("Download Shapefile")
   end
+
+  def test_uw_dataset_notice_show
+    visit "/catalog/405A9341-737D-4E8B-8791-9D1574CA971F"
+    assert page.has_selector?("div.dataset-notice")
+
+    visit "/catalog/90f14ff4-1359-4beb-b931-5cb41d20ab90"
+    assert page.has_no_selector?("div.dataset-notice")
+  end
 end

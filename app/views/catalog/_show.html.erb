@@ -8,6 +8,4 @@
   <% end -%>
 </dl>
 
-<% if (document[Settings.FIELDS.NOTICE]) %>
-    <%= render 'dataset_notice' %>
-<%end%>
+<%= render 'dataset_notice' if render_dataset_notice?(document) %>
