@@ -1,9 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  
+
   # Google Analytics - Production
   config.google_analytics = 'UA-129066-15'
- 
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -56,7 +56,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  # Valid values are :debug, :info, :warn, :error, :fatal, and :unknown, 
+  # Valid values are :debug, :info, :warn, :error, :fatal, and :unknown,
   config.log_level = :warn
 
   # Prepend all log lines with the following tags.
@@ -74,6 +74,12 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: %{"GeoData@WI" <geodata@#{`hostname`.strip}>}}
+  config.action_mailer.default_url_options = { :host => 'geodata-prod.sco.wisc.edu' }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -97,4 +103,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Exception email notification
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+   # Blacklight uses its own 404 extension we need to ignore separately
+   :ignore_exceptions => ['Blacklight::Exceptions::RecordNotFound'] + ExceptionNotifier.ignored_exceptions,
+   :email => {
+     :email_prefix => "[GeoData Error - #{`hostname`.strip}] ",
+     :sender_address => %{"GeoData" <geodata@#{`hostname`.strip}>},
+     :exception_recipients => %w{ lacy@wisc.edu jim.lacy@gmail.com }
+   }
 end

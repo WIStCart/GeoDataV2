@@ -83,3 +83,4 @@ gem 'capistrano-rails', '~>1.4.0'
 gem 'capistrano-passenger', '~>0.2.0'
 
 gem 'chronic'
+gem 'exception_notification', '~> 4.4.0'
