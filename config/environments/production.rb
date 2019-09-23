@@ -111,6 +111,6 @@ Rails.application.configure do
    :email => {
      :email_prefix => "[GeoData Error - #{`hostname`.strip}] ",
      :sender_address => %{"GeoData" <geodata@#{`hostname`.strip}>},
-     :exception_recipients => %w{ ewlarson@gmail.com lacy@wisc.edu jim.lacy@gmail.com }
+     :exception_recipients => %w{ lacy@wisc.edu jim.lacy@gmail.com }
    }
 end
