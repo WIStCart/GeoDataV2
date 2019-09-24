@@ -20,10 +20,10 @@ margin-top: 1rem;
 
 // make size of map roughly same height as 20 search results
 #main-container [data-map="index"] {
-    height: 880px !important;
+    height: 880px;
 }
 
 // fix alignment issue with dataset list
 .documentHeader.row {
-margin-left: 0px !important;
+margin-left: 0px;
 }

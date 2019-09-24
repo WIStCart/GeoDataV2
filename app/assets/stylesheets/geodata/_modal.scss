@@ -1,13 +1,13 @@
 .modal-header, .modal-body, .modal-footer {
   .hide-without-js {
-    display: inline !important;
+    display: inline;
   }
 }
 
 #ajax-modal {
   .modal-header, .modal-body, .modal-footer {
     .hide-without-js {
-      display: inline-block !important;
+      display: inline-block;
     }
   }
 
