@@ -50,9 +50,9 @@ set :default_env, { path: "/opt/ruby/bin:$PATH" }
 # set :ssh_options, verify_host_key: :secure
 
 # Restart Delayed Job queue after deploy
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'delayed_job:restart'
-  end
-end
+# after 'deploy:publishing', 'deploy:restart'
+# namespace :deploy do
+#  task :restart do
+#    invoke 'delayed_job:restart'
+#  end
+# end
