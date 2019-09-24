@@ -87,3 +87,5 @@ gem 'exception_notification', '~> 4.4.0'
 
 # URI Analysis
 gem 'statesman', '~> 4.1.0'
+gem 'delayed_job_active_record', '~> 4.1.0'
+gem 'daemons', '~> 1.3.0'
