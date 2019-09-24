@@ -20,10 +20,5 @@ class CreateUriTransitions < ActiveRecord::Migration[5.2]
               %i(solr_document_uri_id sort_key),
               unique: true,
               name: "index_uri_transitions_parent_sort")
-    add_index(:uri_transitions,
-              %i(solr_document_uri_id most_recent),
-              unique: true,
-              where: "most_recent",
-              name: "index_uri_transitions_parent_most_recent")
   end
 end
