@@ -1,8 +1,14 @@
+require "whenever/capistrano"
+
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
 set :application, 'geodata'
 set :repo_url, 'git@github.com:WIStCart/geodatav2.git'
+
+# Whenever
+set :whenever_environment, defer { stage }
+set :whenever_command, 'bundle exec whenever'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
