@@ -63,11 +63,10 @@ ActiveRecord::Schema.define(version: 2019_09_24_182922) do
     t.string "to_state", null: false
     t.text "metadata"
     t.integer "sort_key", null: false
-    t.integer "solr_document_uri_id", null: false
+    t.bigint "solr_document_uri_id", null: false
     t.boolean "most_recent", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["solr_document_uri_id", "most_recent"], name: "index_uri_transitions_parent_most_recent", unique: true, where: "most_recent"
     t.index ["solr_document_uri_id", "sort_key"], name: "index_uri_transitions_parent_sort", unique: true
   end
 
