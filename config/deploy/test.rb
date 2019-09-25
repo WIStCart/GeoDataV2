@@ -9,7 +9,7 @@
 
 # Our test environment is in effect "production" in that it's mostly used for testing new collections, and for
 # staging new code for eventual deployment to production
-set :rails_env, 'production'
+set :rails_env, 'development'
 server "geodata-test.sco.wisc.edu", user: "geodeploy", roles: [:web,:app,:db]
 
 # role-based syntax
