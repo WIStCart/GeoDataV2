@@ -51,9 +51,9 @@ set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Restart Delayed Job queue after deploy
 namespace :deploy do
-  task :restart do
+  task :restart_dj do
     invoke 'delayed_job:restart'
   end
 end
 
-after 'deploy:publishing', 'deploy:restart'
+after 'deploy:publishing', 'deploy:restart_dj'
