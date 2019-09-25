@@ -18,4 +18,28 @@ class SolrDocument
   # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
+
+  # URI Analysis
+  def uris
+    uris = Array.new
+
+    begin
+      self.references.refs.each do |ref|
+        uri = SolrDocumentUri.where(
+          document_id: id,
+          document_type: self.class.to_s,
+          uri_key: ref.reference[0],
+          uri_value: ref.reference[1]
+        ).first_or_create do |sc|
+          sc.version = self._source["_version_"]
+        end
+
+        uris << uri
+      end
+    rescue Exception => e
+      Rails.logger.error { "Exception found - #{e.inspect}" }
+    end
+
+    return uris
+  end
 end
