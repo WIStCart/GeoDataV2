@@ -27,18 +27,36 @@
     @media (min-width: 400px) {
       display: inline-block;
       float: right;
-      width: calc(100% - 160px);
+      width: calc(100% - 185px);
     }
   }
 }
 
 #guided_search .form-group {
   margin-left: 0;
+  
 }
+
+#guided_search .form-control {
+  border-radius: .5rem .5rem .5rem .5rem;
+  }
 
 .limit-criteria-heading {
   margin: 0 0 0.8em;
 }
+
+#advanced_search_facets .form-control {
+   border-radius: .5rem .5rem .5rem .5rem;
+}
+
+#advanced_search_facets .chosen-search-input {
+   width: 200px;
+}
+
+
+.clear-form {
+   margin-left: 1em;
+   }
 
 .advanced-search-form {
   margin-top: 2rem;
