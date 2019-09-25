@@ -41,6 +41,17 @@ class ShowPageTest < ApplicationSystemTestCase
     assert page.has_link?("Download Shapefile")
   end
 
+  def test_uw_barron_county
+    visit "/catalog/91EB253C-89CF-4217-9E58-F5A65F1F1506"
+    assert page.has_content?("Roads Barron County, WI 2007")
+
+    # Metadata
+    assert page.has_link?("Metadata")
+    click_link 'Metadata'
+
+    assert page.has_content?("ISO 19139")
+  end
+
   def test_uw_dataset_notice_show
     visit "/catalog/405A9341-737D-4E8B-8791-9D1574CA971F"
     assert page.has_selector?("div.dataset-notice")

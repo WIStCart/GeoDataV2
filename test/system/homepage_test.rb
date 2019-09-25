@@ -23,6 +23,7 @@ class HomepageTest < ApplicationSystemTestCase
 
   def test_search
     within("div.navbar-search") do
+      assert page.has_link?("Advanced")
       fill_in("q", with: 'water')
       click_button 'Search'
     end
