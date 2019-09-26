@@ -1,7 +1,13 @@
+// Configuration
 @import 'globals';
-@import 'footer';
-@import 'navbar';
-@import 'home';
-@import 'show';
+
+// Components
+@import 'advanced';
 @import 'downloads';
+@import 'footer';
+@import 'home';
+@import 'modal';
+@import 'listresults';
+@import 'navbar';
+@import 'show';
 @import 'searchresults';

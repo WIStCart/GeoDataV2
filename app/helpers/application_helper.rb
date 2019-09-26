@@ -23,5 +23,9 @@ module ApplicationHelper
     end
 
     date_string
-  end  
+  end
+
+  def render_dataset_notice?(document)
+    document[Settings.FIELDS.NOTICE].present? ? true : false
+  end
 end

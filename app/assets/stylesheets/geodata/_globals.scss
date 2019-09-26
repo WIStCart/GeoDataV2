@@ -1,41 +1,3 @@
-//
-// Global variables and settings used for GeoData@WI
-//
-
-$white: #FFFFFF; // 100%
-$gray: #CCCCCC; // 80%
-$black: #000000; // 0%
-$button-blue: #007bff;
-$radius: .5em;
-$border-width: 1px;
-$border-radius: .5em;
-$link-color: black;
-
-// From UW Madison Official Brand
-// https://brand.wisc.edu/web/colors/
-$uw-red: #c5050c;
-$uw-red-dark: #9b0000;
-$uw-page-bg: #f7f7f7;
-$uw-gray-blue: #dadfe1;
-$uw-gray-darker: #646569;
-$uw-gray-darkest: #282728;
-$uw-body-font: #494949;
-$uw-anchor-color: #0479a8;
-$uw-gray-footer-text: #adadad;
-$uw-gray-footer-text-hover: #f9f9f9;
-
-// main logo used in upper-left
-$logo_image: 'maplayers.svg';
-
-// typical breakpoints used in Bootstrap 
-// currently used for positioning map in container
-$breakpoints: (
-  xs: 576px,
-  sm: 768px,
-  md: 992px,
-  lg: 1200px
-);
-
 // "Beta" ribbon in upper-right corner
 body:after{
   z-index: 9999;
@@ -60,5 +22,5 @@ body:after{
 
 // tweak to get rid of white border that peeks out around the "search here" button
 .search-control {
-    border-radius: .7em !important;
+    border-radius: .7em;
 }

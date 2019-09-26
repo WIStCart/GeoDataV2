@@ -4,6 +4,9 @@ APPLICATION_LOGO_URL: 'http://geoblacklight.org/images/geoblacklight-logo.png'
 # Carto OneClick Service https://carto.com/engine/open-in-carto/
 CARTO_ONECLICK_LINK: 'http://oneclick.carto.com/'
 
+# ArcGIS Online Base URL
+ARCGIS_BASE_URL: 'https://www.arcgis.com/home/webmap/viewer.html'
+
 # Download path can be configured using this setting
 #DOWNLOAD_PATH: "./tmp/cache/downloads"
 
@@ -105,3 +108,17 @@ LEAFLET:
       <<: *opacity_control
     IMAGEMAPLAYER:
       <<: *opacity_control
+
+# Toggle the help text feature that offers users context
+HELP_TEXT:
+  viewer_protocol:
+      - 'download'
+      - 'dynamic_map_layer'
+      - 'feature_layer'
+      - 'iiif'
+      - 'iiif_manifest'
+      - 'image_map_layer'
+      - 'index_map'
+      - 'tiled_map_layer'
+      - 'wms'
+      - 'oembed'

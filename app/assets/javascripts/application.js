@@ -14,13 +14,22 @@
 //= require activestorage
 
 //
+
+//= require tether
 // Required by Blacklight
 //= require jquery
+//= require 'blacklight_advanced_search'
+//= require chosen-jquery
+//= require modules/advanced_chosen
+
+
 //= require popper
 // Twitter Typeahead for autocomplete
 //= require twitter/typeahead
 //= require bootstrap
 //= require blacklight/blacklight
+//= require linkify
+//= require linkify-jquery
 
 //= require_tree .
 
@@ -89,3 +98,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
   }
 });
 
+
+// For blacklight_range_limit built-in JS, if you don't want it you don't need
+// this:
+//= require 'blacklight_range_limit'

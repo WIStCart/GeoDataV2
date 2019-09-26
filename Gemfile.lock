@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/projectblacklight/blacklight_advanced_search.git
+  revision: ae7e3b7242337dceaabb23d212466e7504dedb0e
+  branch: master
+  specs:
+    blacklight_advanced_search (7.0.0.alpha)
+      blacklight (~> 7.0)
+      parslet
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -49,7 +58,7 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.5.1.1)
       execjs
-    bcrypt (3.1.12)
+    bcrypt (3.1.13)
     bindex (0.7.0)
     blacklight (7.0.1)
       deprecation
@@ -58,6 +67,11 @@ GEM
       kaminari (>= 0.15)
       nokogiri (~> 1.6)
       rails (~> 5.1)
+    blacklight_range_limit (7.0.0)
+      blacklight
+      jquery-rails
+      rails (>= 3.0)
+      tether-rails
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     bootstrap (4.3.1)
@@ -92,6 +106,10 @@ GEM
       launchy
     childprocess (2.0.0)
       rake (< 13.0)
+    chosen-rails (1.8.7)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     chronic (0.10.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -107,13 +125,19 @@ GEM
       deep_merge (~> 1.2, >= 1.2.1)
       dry-schema (~> 1.0)
     crass (1.0.4)
+    daemons (1.3.1)
     deep_merge (1.2.1)
+    delayed_job (4.1.8)
+      activesupport (>= 3.0, < 6.1)
+    delayed_job_active_record (4.1.4)
+      activerecord (>= 3.0, < 6.1)
+      delayed_job (>= 3.0, < 5)
     deprecation (1.0.0)
       activesupport
-    devise (4.6.2)
+    devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 6.0)
+      railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
     devise-guests (0.7.0)
@@ -153,6 +177,9 @@ GEM
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
     erubi (1.8.0)
+    exception_notification (4.4.0)
+      actionmailer (>= 4.0, < 7)
+      activesupport (>= 4.0, < 7)
     execjs (2.7.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
@@ -237,11 +264,12 @@ GEM
       net-ssh (>= 2.6.5, < 6.0.0)
     net-ssh (5.2.0)
     nio4r (2.3.1)
-    nokogiri (1.10.3)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     nokogumbo (2.0.1)
       nokogiri (~> 1.8, >= 1.8.4)
     orm_adapter (0.5.0)
+    parslet (1.8.2)
     popper_js (1.14.5)
     public_suffix (3.0.3)
     puma (3.12.1)
@@ -266,7 +294,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.0.4)
+    rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
     railties (5.2.3)
       actionpack (= 5.2.3)
@@ -274,14 +302,14 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
-    rake (12.3.2)
+    rake (12.3.3)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.5.0)
-    responders (2.4.1)
-      actionpack (>= 4.2.0, < 6.0)
-      railties (>= 4.2.0, < 6.0)
+    responders (3.0.0)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     retriable (3.1.2)
     rsolr (2.2.1)
       builder (>= 2.1.2)
@@ -331,6 +359,9 @@ GEM
     sshkit (1.18.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    statesman (4.1.2)
+    tether-rails (1.4.0)
+      rails (>= 3.1)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -363,6 +394,8 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -371,6 +404,8 @@ PLATFORMS
 
 DEPENDENCIES
   blacklight (~> 7.0)
+  blacklight_advanced_search!
+  blacklight_range_limit (~> 7.0.0)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.0)
   byebug
@@ -380,11 +415,15 @@ DEPENDENCIES
   capistrano-rails (~> 1.4.0)
   capybara (>= 2.15)
   capybara-screenshot
+  chosen-rails
   chronic
   coffee-rails (~> 4.2)
+  daemons (~> 1.3.0)
+  delayed_job_active_record (~> 4.1.0)
   devise
   devise-guests (~> 0.6)
   dotenv-rails
+  exception_notification (~> 4.4.0)
   geoblacklight (~> 2.2.1)
   jbuilder (~> 2.5)
   jquery-rails
@@ -396,12 +435,14 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   solr_wrapper (~> 2.0)
   sqlite3 (~> 1.3.6)
+  statesman (~> 4.1.0)
   turbolinks (~> 5)
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   webdrivers
+  whenever (~> 1.0.0)
 
 RUBY VERSION
    ruby 2.5.1p57

@@ -1,3 +1,5 @@
+
+
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
@@ -34,7 +36,7 @@ append :linked_files, "config/database.yml", "config/secrets.yml", "config/maste
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
-append :linked_dirs, "log", "tmp/pids", "tmp/sockets"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -48,3 +50,12 @@ set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+# Restart Delayed Job queue after deploy
+namespace :deploy do
+  task :restart_dj do
+    invoke 'delayed_job:restart'
+  end
+end
+
+after 'deploy:publishing', 'deploy:restart_dj'

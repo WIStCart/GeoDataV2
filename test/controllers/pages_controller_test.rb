@@ -22,8 +22,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not return a unicorn page" do
-    skip("# @TODO - rescue and 404 these bad requests")
-    get '/pages/unicorn'
-    assert_response :not_found
+    assert_raises ActionController::RoutingError do
+      get '/pages/unicorn'
+    end
   end
 end

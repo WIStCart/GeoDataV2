@@ -1,7 +1,7 @@
 // Map defaults to 100% of container size
 #main-container {
   [data-map="home"] {
-     height: 100% !important;
+     height: 100%;
   }
 
   // The map needs a z-index so search suggestions render over the top of the map zoom controls
@@ -10,13 +10,18 @@
   }
 }
 
+// add a little extra space between header and titles on support pages
+.page-heading {
+    margin-top: 1em;
+}
+
 // icons used on home page
 .uw-icon-container {
    padding-bottom: 0em;
    width: 175px;
 }
 .uw-home-icon {
-   width: 150px;
+   width: 100px;
 }
 
 // for smaller screen sizes, map pops to bottom and size set to 500px tall
@@ -24,7 +29,7 @@
 @media (max-width: map-get($breakpoints, md)) {
 #main-container {
   [data-map="home"] {
-      height: 500px !important;
+      height: 500px;
       margin-top: 2em;
   }
 }
@@ -33,7 +38,7 @@
 // add a little extra white space under facet boxes
 // this also affects facets on search results page
 .facet-limit {
-   margin-bottom: 1em !important;
+   margin-bottom: 1em;
 }
 
 // add a little extra white space under cards

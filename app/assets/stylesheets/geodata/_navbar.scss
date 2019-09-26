@@ -1,5 +1,5 @@
 .jumbotron {
-    padding: 1rem 1rem !important;;
+    padding: 1rem 1rem;
     margin-bottom: 2rem;
     background-color: #e9ecef;
     border-radius: 0.3rem;
@@ -10,11 +10,11 @@
    }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: $white !important;
+    color: $white;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
-    color: $uw-gray-footer-text !important;
+    color: $uw-gray-footer-text;
 }
 
 .uw_app_title a {
@@ -30,11 +30,18 @@
 }
 
 .navbar-brand {
-    flex: 0 0 55px !important;
-    background-size: 55px 55px !important;
-    margin-top: 0 !important;
+    flex: 0 0 55px;
+    background-size: 55px 55px;
+    margin-top: 0;
 }
 
 .form-control {
-    border-radius: .5rem 0% 0% .5rem !important;
+    border-radius: .5rem 0% 0% .5rem;
+}
+
+div.navbar-search {
+  button#search {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
 }
