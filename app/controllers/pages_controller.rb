@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
-    def show
-         render template: "pages/#{params[:page]}"
+  def show
+    begin
+      render template: "pages/#{params[:page]}"
+    rescue
+      raise ActionController::RoutingError.new('Not Found')
     end
-end  
+  end
+end
