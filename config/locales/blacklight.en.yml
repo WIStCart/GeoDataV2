@@ -12,5 +12,6 @@ en:
         title: 'Filter your search:'
         clear: 'Clear Filter'   
     tools:
-      title: 'Links' 
+      title: 'Links'
+      citation: 'Citation'
    
