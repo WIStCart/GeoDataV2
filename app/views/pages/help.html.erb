@@ -2,7 +2,78 @@
   <div class="row justify-content-md-center">
     <div class="col-md-auto">
         <h1 class="page-heading">How to Use GeoData@Wisconsin</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem donec massa sapien faucibus. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Aliquam vestibulum morbi blandit cursus risus at ultrices mi. Ullamcorper sit amet risus nullam eget felis eget nunc. Bibendum arcu vitae elementum curabitur vitae nunc sed velit. Pellentesque diam volutpat commodo sed egestas egestas fringilla. Fusce id velit ut tortor pretium viverra suspendisse potenti. Molestie nunc non blandit massa enim. Consectetur a erat nam at lectus urna. Sed velit dignissim sodales ut eu sem integer vitae justo.</p>   
+        <h3>Text Searching from the Homepage</h3>
+            <p>There are four primary ways to use text to execute a search from the GeoData@Wisconsin homepage:
+            Keyword (Simple or Advanced); Browse All or by Collection; Filter by ‘Creator’ or ‘Held By’.</p>   
+    
+    <%= image_tag("home.png", alt: "GeoData@Wisconsin Home Page", class: "img-fluid rounded mx-auto d-block") %>
+    <p> </p>
+            <p><strong>1. Simple Keyword: </strong></p>
+            <p>The simple keyword search can be executed by entering terms or phrases in the simple search bar at the top of the page.  This free text search returns results where keywords appear in a dataset title or description.</p>
+  
+            <p><strong>2. Advanced Search: </strong><p>         
+            <p>The advanced search allows for a more refined keyword search by combining keywords with specific publisher/creator and/or title information. Search results here can be further limited by dataset creator/author, or who holds the dataset (i.e. Arthur H. Robinson Map Library, Department of Natural Resources, Waukesha County, etc.)</p>
+    
+    <%= image_tag("advanced.png", alt: "GeoData@Wisconsin Advanced Search", class: "img-fluid rounded mx-auto d-block") %>
+    
+            <p><strong>3. Browsing:</strong></p>
+            <p>There are four options on the homepage to browse data within GeoData@Wisconsin. (1) Browse All brings up all records in the geoportal, listed alphabetically by title; (2) Statewide Layers returns results for data or maps that cover all (or most) of Wisconsin, as opposed to those that represent a single county or city; (3) Coastal Layers are datasets identified as being significant to the coastal community – including all data covering the 15 Great Lakes Coastal counties in Wisconsin, as well as data from the Wisconsin Coastal Atlas and other sources; (4) Aerial Imagery contains current and historic digital aerial photographs of Wisconsin.</p> 
+
+            <p><strong>4. Filtering by Creator or Held By:</strong></p>
+            <p>Using the homepage filters (or ‘facets’) allow you to quickly see results by who created the dataset or where the datasets are housed/held.  The Creator filter presents a standardized list of dataset creator names like the “Department of Natural Resources”, “Department of Administration” or “Calumet County”, etc.  The Held By filter is the best way to distinguish between datasets that are archived at UW-Madison and downloadable from the Arthur H. Robinson Map Library, and those datasets that are downloadable directly from the original data producer.</p>
+
+     
+<h3>Map Searching from the Homepage</h3>
+<p>The homepage features a Wisconsin map for geographic searches. The user can pan the map with the mouse and zoom with the controls at the upper left (or the mouse wheel). When the desired area is in view, the user can click the blue “Search here” button at the upper right. Only records that fall within the geographic extents visible on the map will be displayed.</p>
+
+<%= image_tag("mapsearch.png", alt: "GeoData@Wisconsin Map Search", class: "img-fluid rounded mx-auto d-block") %>
+<p> </p>
+<h3>Refining Search Results</h3>
+
+<p>Once an action has taken place on the homepage, the user will be taken to a search results page. The text search box will still be present at the top, but additional options for filtering will be available. This is accomplished by selected terms under the facets on the left of the screen.</p>
+
+<p><strong>Collection:</strong> a text filter for specific collection names: Coastal Layers, Statewide Layers, and Wisconsin Open Data Sites (these are datasets coming directly from online ESRI Open Data sites in Wisconsin. At regular intervals these sites are scanned for all data present at that time - and the results are added to GeoData@Wisconsin)</p>
+
+<p><strong>Created By:</strong> an organization that directly developed the data or map resource </p>
+
+<p><strong>Held By:</strong> the steward of the dataset or map, and where the available file download originates from. This entry helps to identify specific datasets that have been created by agencies or organizations around Wisconsin but are archived at UW-Madison’s Arthur H. Robinson Map Library.  </p>
+
+<p><strong>Time Period:</strong> an aggregated grouping of dates to limit searches in 5-year increments.</p>
+
+<p><strong>Year:</strong> a specific year, or customized range of years to limit searches by.  For a single year, enter the same year in both boxes, i.e. 2016 to 2016.</p>
+
+<p><strong>Subject:</strong> a controlled list of ISO topic categories and Library of Congress cartographic subject headings.</p>
+
+<p><strong>Data Type:</strong> the type and shape of datasets – useful for limiting searches by Point, Line, Polygon, Raster, etc. It should be noted that no records from within the “Wisconsin Open Data Sites” collection are represented in this facet.  These types/shapes only describe the collections archived at the Arthur H. Robinson Map Library. When wanting to search ALL available datasets in the geoportal, it is best to avoid limiting by Data Type.</p>
+
+<p><strong>Format</strong>: describes the format of the data when downloaded: geodatabase, file, shapefile, raster dataset, GeoTIFF or image.</p>
+     
+<h3>Understanding the Item Show Page</h3>
+<p>When a record is selected from the search results page, the user is taken to the item’s Show Page. This page displays information about the resource and provides a map view with a bounding box of the data extent or a preview of the data itself. Here you will find the dataset title, creator (or originator), summary description, relevant subject(s), content year, where the data is held, any supplemental information from the metadata record, and an additional link to gather more information (if present).</p>
+    
+    <%= image_tag("show.png", alt: "GeoBlacklight Show Page", class: "img-fluid rounded mx-auto d-block") %>
+
+<p> </p>   
+<p><strong>Map View: Data Preview or Bounding Box</strong><p>
+<p>The Show Page includes a map at the bottom which will draw a simple bounding box that illustrates the extent the dataset covers or (if a web service is available) a preview of the data itself on the map.  If the data includes a geospatial web service, the user will be able to click on entities within the service to see attribute information about it.</p> 
+
+<p><strong>Links panel</strong></p>
+<p>The Links panel provides a series of options for each item. Depending on the resource, these options may change from one to another. </p>
+
+<ul>
+<li><strong>Metadata:</strong> displays supplemental metadata in the ISO 19139 standard (if available)</li>
+<li><strong>Citation:</strong> creates a basic citation that can be used to formally describe the resource</li>
+<li><strong>Web services:</strong> displays the web service address that can be copied into a desktop or online map application (if available)</li>
+<li><strong>Open in ArcGIS:</strong> opens the item in ArcGIS Online (if available)</li>
+</ul>
+    
+<p><strong>Download panel</strong></p>
+<p>The Download panel directs a user to the direct download of an item. This link may be to an archived dataset at the Arthur H. Robinson Map Library, or to the original data producer’s website or portal.</p>
+    
+    
+    
+    
+    
     </div>
   </div>
 </div>
