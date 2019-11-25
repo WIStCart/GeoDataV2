@@ -1,35 +1,27 @@
 // List view results
-#documents {
-  .media {
-    img,span.icon.square {
-      span.blacklight-icons {
-        min-width: 4rem;
-        max-width: 4rem;
-        padding-left: 1rem;
+
+  .list-icon svg {
+        width: 4rem;
+        height: 4rem;
       }
+      
+  .list-icon span.blacklight-icons {
+      min-height: 4rem;
+      min-width: 4rem;
     }
-    span.icon.square svg {
-      height: 4rem;
-      width: 4rem;
+    
+  .list-icon {
+    -ms-flex: 0 0 4rem;
+    flex: 0 0 4rem; 
     }
-  }
-
-  span.list-view.document-counter {
-    display:inline-block;
-    float:left;
-    position:relative;
-    top:1rem;
-    font-weight:500;
-    min-width:1rem;
-  }
-
-  .view-type-group {
-    .caption {
-      position:inherit;
-    }
-  }
-  
+    
+@media (max-width: 768px) {
+  .list-icon {
+    display: none; 
+  } 
+}
+   
  p.mb-1 {
     font-weight:600;
     }
-}
+    

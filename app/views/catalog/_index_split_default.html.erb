@@ -1,22 +1,15 @@
 <% # header bar for doc items in index view -%>
 <%= content_tag :div, class: 'documentHeader row', data: { layer_id: document.id, bbox: document.bounding_box_as_wsen } do %>
-  <div class="document-wrapper">
-    <% counter = document_counter_with_offset(document_counter) %>
-    <span class="list-view document-counter">
-      <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
-    </span>
-    <div class='col-xs-11'>
-      <div class='media'>
-        <span class="icon square mr-3" title="<%=document[Settings.FIELDS.GEOM_TYPE]%>">
-          <%= geoblacklight_icon(document[Settings.FIELDS.GEOM_TYPE]) %>
+<div class="list-icon col">
+    <%= geoblacklight_icon(document[Settings.FIELDS.GEOM_TYPE]) %>
+</div>
+<div class="list-title col">
+    <p class="mb-1">        
+        <% counter = document_counter_with_offset(document_counter) %>
+        <span class="document-counter">
+            <%= t('blacklight.search.documents.counter', :counter => counter) if counter %> 
         </span>
-        <div class='media-body'>
-          <p class='mb-1'><%= link_to_document document, counter: counter, title: document[blacklight_config.index.title_field] %>
-          <%= render partial: 'header_icons', locals: { document: document } %>
-          </p>
-          <p><%= geoblacklight_present(:index_fields_display, document) %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+        <span><%= link_to_document document, counter: counter, title: document[blacklight_config.index.title_field] %> <%= render partial: 'header_icons', locals: { document: document } %></span></p>
+    <p><%= geoblacklight_present(:index_fields_display, document) %></p>
+</div>
+<% end %>    
