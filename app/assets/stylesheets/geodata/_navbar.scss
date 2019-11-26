@@ -19,9 +19,16 @@
 
 .uw_app_title a {
     color: $white;
-    font-size: 1.5em;
+    font-size: 1.7em;
     font-weight: 700;
     font-style: italic;
+}
+
+// tweak size of title text on smaller screens so hamburger menu fits
+@media (max-width: map-get($breakpoints, xs)) {
+    .uw_app_title a {
+     font-size: 1.1em;
+    }
 }
 
 .uw_app_title a:hover{

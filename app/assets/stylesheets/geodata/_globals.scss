@@ -1,25 +1,3 @@
-// "Beta" ribbon in upper-right corner
-body:after{
-  z-index: 9999;
-  content: "beta";
-  position: fixed;
-  width: 80px;
-  height: 25px;
-  background: $button-blue;
-  top: 7px;
-  right: -20px;
-  text-align: center;
-  font-size: 13px;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #fff;
-  line-height: 27px;
-  -ms-transform:rotate(45deg);
-  -webkit-transform:rotate(45deg);
-  transform:rotate(45deg);
-}
-
 // tweak to get rid of white border that peeks out around the "search here" button
 .search-control {
     border-radius: .7em;

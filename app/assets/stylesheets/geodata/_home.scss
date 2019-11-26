@@ -22,10 +22,11 @@
 }
 .uw-home-icon {
    width: 100px;
+   height: 100px;
 }
 
 // for smaller screen sizes, map pops to bottom and size set to 500px tall
-// might be more elegant way to do this
+// might be a more elegant way to do this
 @media (max-width: map-get($breakpoints, md)) {
 #main-container {
   [data-map="home"] {
