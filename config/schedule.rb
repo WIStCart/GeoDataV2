@@ -38,12 +38,12 @@ every '0 2 1,14 * *', roles: [:app] do
   rake 'geodata:uri_process_all'
 end
 
-# At 01:00 on day-of-month 2 and 16.
-every '0 1 2,16 * *', roles: [:app] do
+# At 01:00 on day-of-month 2 and 15.
+every '0 1 2,15 * *', roles: [:app] do
   rake 'geodata:uri_queue_incomplete_states'
 end
 
-# At 08:00 on day-of-month 2 and 16.
-every '0 8 2,16 * *', roles: [:app] do
+# At 08:00 on day-of-month 2 and 15.
+every '0 8 2,15 * *', roles: [:app] do
   rake 'geodata:uri_report'
 end

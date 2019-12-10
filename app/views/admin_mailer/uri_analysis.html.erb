@@ -15,15 +15,16 @@
 
     <hr/>
     <h3>How this works</h3>
-    <p>Once a month, every solr document uri object in the database is purged and recreated. Each new URI is processed to determine whether the URI is good or bad. That state is captured in the database and after all URIs are processed, we generate this CSV report of how the URI analysis performed.</p>
+    <p>Twice per month, every solr document uri object in the database is purged and recreated. Each new URI is processed to determine whether the URI is good or bad. That state is captured in the database and after all URIs are processed, we generate this CSV report of how the URI analysis performed.</p>
     <hr/>
     <h4>Technical Details</h4>
     <p>The whenever gem runs these rake tasks:</p>
     <ul>
-      <li>1st day of month / 1:00am / bundle exec rake geodata:uri_purge</li>
-      <li>1st day of month / 2:00am / bundle exec rake geodata:uri_process_all</li>
-      <li>2nd day of month / 2:00am / bundle exec rake geodata:uri_queue_incomplete_states</li>
-      <li>2nd day of month / 8:00am / bundle exec rake geodata:uri_report</li>
+      <li>1st and 14th day of month / 1:00am / bundle exec rake geodata:uri_purge</li>
+      <li>1st and 14th day of month / 2:00am / bundle exec rake geodata:uri_process_all</li>
+      <li>2nd and 15th day of month / 2:00am / bundle exec rake geodata:uri_queue_incomplete_states</li>
+      <li>2nd and 15thday of month / 8:00am / bundle exec rake geodata:uri_report</li>
     </ul>
+    <p>Remember: if you want to run these tasks manually at the commandline on the server, you must pre-pend RAILS_ENV=production to the bundle exec command.</p>
   </body>
 </html>
