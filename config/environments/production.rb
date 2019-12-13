@@ -68,17 +68,22 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   config.active_job.queue_adapter = :delayed_job
 
-  config.action_mailer.perform_caching = false
-
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.perform_deliveries = true
+  # Actionmailer
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: %{"GeoData@WI" <geodata@#{`hostname`.strip}>}}
-  config.action_mailer.default_url_options = { :host => 'geodata-prod.sco.wisc.edu' }
+  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_deliveries = true
+
+  #SMTP mail settings
+  config.action_mailer.default_options = {from: 'geodata@sco.wisc.edu'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.office365.com',
+      port:                 587,
+      domain:               'wisc.edu',
+      user_name:            'geodata_sco@wisc.edu',
+      password:             Rails.application.secrets.smtp_password,
+      authentication:       'login',
+      enable_starttls_auto: true }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -109,7 +114,7 @@ Rails.application.configure do
    :ignore_exceptions => ['Blacklight::Exceptions::RecordNotFound'] + ExceptionNotifier.ignored_exceptions,
    :email => {
      :email_prefix => "[GeoData Error - #{`hostname`.strip}] ",
-     :sender_address => %{"GeoData" <geodata@#{`hostname`.strip}>},
-     :exception_recipients => %w{ lacy@wisc.edu jim.lacy@gmail.com }
+     :sender_address => %{"GeoData@Wisconsin" <geodata@sco.wisc.edu>},
+     :exception_recipients => %w{ geodata@sco.wisc.edu }
    }
 end

@@ -33,12 +33,23 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # Actionmailer
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_options = {from: %{"GeoData@WI" <geodata@#{`hostname`.strip}>}}
-  config.action_mailer.default_url_options = { :host => 'geodata-prod.sco.wisc.edu' }
+  config.action_mailer.perform_deliveries = true
 
+   #SMTP mail settings
+   config.action_mailer.default_options = {from: 'geodata@sco.wisc.edu'}
+   config.action_mailer.delivery_method = :smtp
+   config.action_mailer.smtp_settings = {
+      address:              'smtp.office365.com',
+      port:                 587,
+      domain:               'wisc.edu',
+      user_name:            'geodata_sco@wisc.edu',
+      password:             Rails.application.secrets.smtp_password,
+      authentication:       'login',
+      enable_starttls_auto: true }
+  
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
