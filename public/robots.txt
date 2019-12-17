@@ -1,1 +1,20 @@
 # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+
+User-agent: *
+Disallow: /?q=
+Disallow: /?f
+Disallow: /catalog.html?f
+Disallow: /catalog.atom
+Disallow: /catalog.rss
+Disallow: /catalog/*/admin
+
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: MauiBot
+Disallow: /
+User-agent: DotBot
+Disallow: /
+User-agent: MJ12Bot
+Disallow: /
