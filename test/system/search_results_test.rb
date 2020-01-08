@@ -51,7 +51,7 @@ class SearchResultsTest < ApplicationSystemTestCase
 
   def test_split_view_results
     visit '?q=&search_field=all_fields&utf8=%E2%9C%93&view=split'
-    assert page.has_selector?("div#documents.split-view")
+    assert page.has_selector?("div#documents")
     assert page.has_no_selector?("div#map")
   end
 
