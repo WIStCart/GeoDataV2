@@ -72,4 +72,9 @@ class SearchResultsTest < ApplicationSystemTestCase
       assert page.has_content?("Title (Z-A)")
     end
   end
+
+  def test_uw_supplemental_s_field_values
+    visit '/?q="Archived+dataset+at+UW-Madison"'
+    assert page.has_no_content?("No entries found")
+  end
 end

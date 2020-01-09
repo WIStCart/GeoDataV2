@@ -173,6 +173,8 @@
   <!-- core text search -->
   <copyField source="*_ti"               dest="text" />
   <copyField source="*_tmi"              dest="text" />
+  <copyField source="*_s"                dest="text" />
+  <copyField source="*_sm"               dest="text" />
 
   <!-- for sorting text fields -->
   <copyField source="dct_provenance_s"   dest="dct_provenance_sort"/>
