@@ -51,7 +51,7 @@ class SearchResultsTest < ApplicationSystemTestCase
 
   def test_split_view_results
     visit '?q=&search_field=all_fields&utf8=%E2%9C%93&view=split'
-    assert page.has_selector?("div#documents.split-view")
+    assert page.has_selector?("div#documents")
     assert page.has_no_selector?("div#map")
   end
 
@@ -71,5 +71,10 @@ class SearchResultsTest < ApplicationSystemTestCase
       assert page.has_content?("Title (A-Z)")
       assert page.has_content?("Title (Z-A)")
     end
+  end
+
+  def test_uw_supplemental_s_field_values
+    visit '/?q="Archived+dataset+at+UW-Madison"'
+    assert page.has_no_content?("No entries found")
   end
 end
