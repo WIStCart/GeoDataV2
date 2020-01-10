@@ -13,5 +13,23 @@ Blacklight.onLoad(function() {
       },
       staticButton: '<a class="btn btn-primary">Search here</a>'
     }));
+
+    // Add searchControl jQuery plugin
+    // "map" must exist in global namespace
+    window.map = geoblacklight.map;
+
+    $(map).addSearchControl({
+      latLng: false,
+      address: true,
+      gazetteer: false,
+      county: true,
+      cityTownVillage: true,
+      twnRng: false,
+      twnRngSec: true,
+      quad: false,
+      position: 'topleft',
+      order: ["latLng", "address", "gazetteer", "county", "cityTownVillage", "twnRng", "twnRngSec", "quad"],
+      searchText: 'Search <span id = "searchText" class="searchIcon" style="margin-top:3px;"></span>'
+    });
   });
 });
