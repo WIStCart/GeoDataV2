@@ -1,3 +1,2 @@
-rails: bin/rails server --port=3000
-webpack: bin/webpack-dev-server
-
+sidekiq:     bundle exec sidekiq -q devise,1 -q default
+sidekiq_web: bundle exec puma sidekiq.ru

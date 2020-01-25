@@ -1,5 +1,5 @@
 # UW Geodata
-Using Blacklight v7, GBL v2, Solr v7.5, Rails v5.2 / Release 2.2.5
+Using Blacklight v7, GBL v2, Solr v7.5, Rails v5.2 / Release 2.2.13
 
 ### Setup for local development and deployment
 ```shell
@@ -34,6 +34,16 @@ bundle exec rake geodata:server
 
 # Run Solr and Application Test Suite
 RAILS_ENV=test bundle exec rake ci
+
+# Run Sidekiq and Web UI
+foreman start
+# visit http://localhost:5100/
+
+# Test URI Analysis locally
+bundle exec rake geodata:uri_purge
+bundle exec rake geodata:uri_process_all
+
+# Sidekiq Web UI will show jobs being processed
 ```
 
 ### MJB Removed/Modified:

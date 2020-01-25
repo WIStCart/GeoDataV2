@@ -49,7 +49,7 @@ Rails.application.configure do
       password:             Rails.application.secrets.smtp_password,
       authentication:       'login',
       enable_starttls_auto: true }
-  
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -78,12 +78,12 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Background Jobs
-  config.active_job.queue_adapter = :delayed_job
+  config.active_job.queue_adapter = :sidekiq
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   #config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  
+
   # uncomment the following to test 404 and 500 error pages in development
   #config.consider_all_requests_local = false
 end
