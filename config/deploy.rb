@@ -53,9 +53,12 @@ set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Restart Delayed Job queue after deploy
 namespace :deploy do
-  task :restart_dj do
-    invoke 'delayed_job:restart'
+  desc 'Restart sidekiq'
+  task :restart_sidekiq do
+    on roles(:app) do
+      execute 'sudo systemctl restart sidekiq'
+    end
   end
 end
 
-after 'deploy:publishing', 'deploy:restart_dj'
+after 'deploy:publishing', 'deploy:restart_sidekiq'
