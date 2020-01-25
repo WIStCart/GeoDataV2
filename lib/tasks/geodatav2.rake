@@ -1,5 +1,7 @@
 desc 'Run test suite'
 task :ci do
+  require 'solr_wrapper'
+
   shared_solr_opts = { managed: true, verbose: true, persist: false, download_dir: 'tmp' }
   shared_solr_opts[:version] = ENV['SOLR_VERSION'] if ENV['SOLR_VERSION']
 
@@ -37,6 +39,8 @@ namespace :geodata do
 
   desc "Start solr server for testing."
   task :test do
+    require 'solr_wrapper'
+    
     if Rails.env.test?
       shared_solr_opts = { managed: true, verbose: true, persist: false, download_dir: 'tmp' }
       shared_solr_opts[:version] = ENV['SOLR_VERSION'] if ENV['SOLR_VERSION']
@@ -59,6 +63,8 @@ namespace :geodata do
 
   desc "Start solr server for development."
   task :development do
+    require 'solr_wrapper'
+
     shared_solr_opts = { managed: true, verbose: true, persist: false, download_dir: 'tmp' }
     shared_solr_opts[:version] = ENV['SOLR_VERSION'] if ENV['SOLR_VERSION']
 
