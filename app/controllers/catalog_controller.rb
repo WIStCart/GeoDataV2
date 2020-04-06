@@ -179,8 +179,7 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
     config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_facet: true
-    config.add_show_field Settings.FIELDS.TEMPORAL, label: 'dct_temporal', itemprop: 'temporal'
-    config.add_show_field Settings.FIELDS.YEAR, label: 'solr_year', itemprop: 'year'
+    config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year(s)', itemprop: 'temporal'
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held By', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUPPLEMENTAL, label: 'Supplemental Info', itemprop: 'supplemental'
     config.add_show_field(
