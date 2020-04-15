@@ -81,6 +81,7 @@ gem 'devise-guests', '~> 0.6'
 # Admin view
 gem 'haml'
 gem 'awesome_print'
+gem 'inline_svg', '~> 1.7.0'
 
 # Sidecar images
 gem 'geoblacklight_sidecar_images', '~> 0.6.0'
