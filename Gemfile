@@ -82,6 +82,9 @@ gem 'devise-guests', '~> 0.6'
 gem 'haml'
 gem 'awesome_print'
 
+# Sidecar images
+gem 'geoblacklight_sidecar_images', '~> 0.6.0'
+
 gem 'capistrano', '~>3.11.0'
 gem 'capistrano-bundler', '~>1.4.0'
 gem 'capistrano-rails', '~>1.4.0'
