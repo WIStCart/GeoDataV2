@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     concerns :range_searchable
 
   end
+
+  get '/catalog/:id/admin' => 'catalog#admin', as: 'admin_catalog'
+
   devise_for :users
   concern :exportable, Blacklight::Routes::Exportable.new
 
