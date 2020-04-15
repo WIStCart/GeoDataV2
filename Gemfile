@@ -78,6 +78,10 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 
+# Admin view
+gem 'haml'
+gem 'awesome_print'
+
 gem 'capistrano', '~>3.11.0'
 gem 'capistrano-bundler', '~>1.4.0'
 gem 'capistrano-rails', '~>1.4.0'
