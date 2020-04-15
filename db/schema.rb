@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_182922) do
+ActiveRecord::Schema.define(version: 2020_04_15_212133) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -48,6 +69,28 @@ ActiveRecord::Schema.define(version: 2019_09_24_182922) do
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
+  create_table "sidecar_image_transitions", force: :cascade do |t|
+    t.string "to_state", null: false
+    t.text "metadata"
+    t.integer "sort_key", null: false
+    t.bigint "solr_document_sidecar_id", null: false
+    t.boolean "most_recent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["solr_document_sidecar_id", "most_recent"], name: "index_sidecar_image_transitions_parent_most_recent", unique: true
+    t.index ["solr_document_sidecar_id", "sort_key"], name: "index_sidecar_image_transitions_parent_sort", unique: true
+  end
+
+  create_table "solr_document_sidecars", force: :cascade do |t|
+    t.string "document_id"
+    t.string "document_type"
+    t.string "image"
+    t.integer "version", limit: 8
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_type", "document_id"], name: "sidecars_solr_document"
+  end
+
   create_table "solr_document_uris", force: :cascade do |t|
     t.string "document_id"
     t.string "document_type"
@@ -63,10 +106,11 @@ ActiveRecord::Schema.define(version: 2019_09_24_182922) do
     t.string "to_state", null: false
     t.text "metadata"
     t.integer "sort_key", null: false
-    t.bigint "solr_document_uri_id", null: false
+    t.integer "solr_document_uri_id", null: false
     t.boolean "most_recent", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["solr_document_uri_id", "most_recent"], name: "index_uri_transitions_parent_most_recent", unique: true, where: "most_recent"
     t.index ["solr_document_uri_id", "sort_key"], name: "index_uri_transitions_parent_sort", unique: true
   end
 
