@@ -2,3 +2,13 @@
 span.icon-missing {
     display: none;
 }
+
+a[target="_blank"]:after {
+  content: "";
+  background: image-url("external-link-alt-solid.svg");
+  background-size: 1rem;
+  margin-left:0.5rem;
+  width: 1rem;
+  height: 1rem;
+  display:inline-block;
+}
