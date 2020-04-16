@@ -26,11 +26,10 @@
            [creator not found],
         <% end %>
 
-        <% if document["dct_issued_s"].present? %>
-          (<%= citation_dct_issued_s(document["dct_issued_s"]) %>).
-        <% else %>
-          <% # @TODO: guard against 9999s %>
+        <% if document["solr_year_i"].present? %>
           (<%= citation_solr_year_i(document["solr_year_i"]) %>).
+        <% else %>
+          (<%= citation_dct_issued_s(document["dct_issued_s"]) %>).
         <%- end %>
 
         <% if document["dc_title_s"].present? %>
@@ -47,11 +46,11 @@
             <% if document.references.url.present? %>
                 <%= document.references.url.endpoint %>
             <% end %>
-        <% end %>    
+        <% end %>
     </p>
       </p>
     <% end %>
 
-  
+
   <% end %>
 </div>
