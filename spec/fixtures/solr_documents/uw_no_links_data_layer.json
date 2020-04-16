@@ -6,6 +6,7 @@
   "dc_rights_s": "Public",
   "dct_provenance_s": "Milwaukee County",
   "layer_slug_s": "MilwaukeeCounty_b64d9ead8a1843d7b01d8ff4915bc89b",
+  "layer_geom_type_s": "Mixed",
   "dc_format_s": "File",
   "dc_language_s": "English",
   "dct_isPartOf_sm": [
@@ -17,6 +18,6 @@
   "dc_type_s": "Dataset",
   "solr_geom": "ENVELOPE(-88.0723, -87.8606, 43.1908, 42.9325)",
   "solr_year_i": 2018,
-  "dct_references_s": "{\"http://schema.org/url\":\"http://gis-mclio.opendata.arcgis.com/datasets/b64d9ead8a1843d7b01d8ff4915bc89b\"}",
-  "uw_notice_s": "This dataset was automatically cataloged from the author's Open Data Portal. In some cases, publication year and bounding coordinates shown here may be incorrect.  Please check the 'More details at' link for additional information."
+  "dct_references_s": "{\"http://schema.org/url\":\"http://gis-mclio.opendata.arcgis.com/datasets/b64d9ead8a1843d7b01d8ff4915bc89b\",\"urn:x-esri:serviceType:ArcGIS#ImageMapLayer\":\"https://lio.milwaukeecountywi.gov/arcgis/rest/services/Image_Services/1928_Aerial/ImageServer\"}",
+  "uw_notice_s": "This dataset was automatically cataloged from the author's Open Data Portal. In some cases, publication year and bounding coordinates shown here may be incorrect. Additional download formats may be available on the author's website. Please check the 'More details at' link for additional information."
 }
