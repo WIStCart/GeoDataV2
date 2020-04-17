@@ -1,23 +1,23 @@
 // List view results
 
   .list-icon div.media {
-      width: 4rem;
-      height: 4rem;
+      width: 6rem;
+      height: 6rem;
     }
 
   .list-icon svg {
-        width: 4rem;
-        height: 4rem;
+        width: 6rem;
+        height: 6rem;
       }
 
   .list-icon span.blacklight-icons {
-      min-height: 4rem;
-      min-width: 4rem;
+      min-height: 6rem;
+      min-width: 6rem;
     }
 
   .list-icon {
-    -ms-flex: 0 0 4rem;
-    flex: 0 0 4rem;
+    -ms-flex: 0 0 6rem;
+    flex: 0 0 6rem;
     }
 
 @media (max-width: 768px) {
