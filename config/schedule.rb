@@ -47,3 +47,8 @@ end
 every '0 8 2,15 * *', roles: [:app] do
   rake 'geodata:uri_report'
 end
+
+# Harvest thumbnail images for search results
+every :day, at: '12:05am', roles: [:app] do
+  rake 'gblsci:images:harvest_retry'
+end
