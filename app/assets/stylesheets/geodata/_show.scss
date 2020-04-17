@@ -14,3 +14,9 @@ span.icon-missing {
     display:inline-block;
   }
 }
+
+// treat /n in uw_supplemental field as new line... essentially same as <br/>
+.blacklight-uw_supplemental_s {
+    white-space: pre-line;
+}
+    
