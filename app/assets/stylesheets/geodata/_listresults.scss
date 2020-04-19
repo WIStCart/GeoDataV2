@@ -1,24 +1,29 @@
 // List view results
 
-  .list-icon div.media {
-      width: 6rem;
-      height: 6rem;
+// space list text this far from left
+.list-icon {
+    -ms-flex: 0 0 8rem;
+    flex: 0 0 8rem;
     }
 
-  .list-icon svg {
-        width: 6rem;
-        height: 6rem;
-      }
-
-  .list-icon span.blacklight-icons {
+// set space available for icons/images    
+.list-icon .media {
       min-height: 6rem;
-      min-width: 6rem;
-    }
-
-  .list-icon {
-    -ms-flex: 0 0 6rem;
-    flex: 0 0 6rem;
-    }
+      min-width: 6rem; 
+} 
+  
+      
+// set size of icons
+.list-icon .media .blacklight-icons svg {
+        min-width: 5rem;
+        min-height: 5rem;
+} 
+      
+//set size of images 
+.img-fluid {
+        width: 5rem;
+        height: 5rem;
+} 
 
 @media (max-width: 768px) {
   .list-icon {
@@ -26,6 +31,6 @@
   }
 }
 
- p.mb-1 {
+p.mb-1 {
     font-weight:600;
-    }
+}
