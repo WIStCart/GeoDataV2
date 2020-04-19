@@ -2,8 +2,14 @@
   .hide-without-js {
     display: inline;
   }
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    border-bottom-left-radius: calc(0.3rem - 1px);
 }
 
+.modal-footer {
+    border-top: none;
+   }
+   
 #ajax-modal {
   .modal-header, .modal-body, .modal-footer {
     .hide-without-js {
@@ -17,4 +23,17 @@
   width: 1rem;
   height: 1rem;
   margin-right: 0.25rem;
+}
+
+.web-services-form {
+  a[target="_blank"]:before {
+    content: "";
+    background: image-url("link-solid.svg");
+    background-size: 1rem;
+    margin-left:0.5rem;
+    width: 1rem;
+    height: 1rem;
+    display:inline-block;
+  }
+  overflow: hidden;
 }
