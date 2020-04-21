@@ -51,7 +51,7 @@ set :default_env, { path: "/opt/ruby/bin:$PATH" }
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-# Restart Delayed Job queue after deploy
+# Restart Sidekiq after deploy
 namespace :deploy do
   desc 'Restart sidekiq'
   task :restart_sidekiq do

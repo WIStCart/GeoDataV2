@@ -131,7 +131,7 @@ class CatalogController < ApplicationController
       '1800s' => { :label => '1800s', :fq => "solr_year_i:[1800 TO 1899]" }
     }, collapse: true
     config.add_facet_field Settings.FIELDS.YEAR, label: 'Year', limit: 10, collapse: false, all: 'Any year', range: {
-      assumed_boundaries: [1100, 2019]
+      assumed_boundaries: [1100, 3000]
     }
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 5, collapse: true
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
@@ -179,7 +179,7 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
     config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_facet: true
-    config.add_show_field Settings.FIELDS.YEAR, label: 'Year', itemprop: 'year'
+    config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year(s)', itemprop: 'temporal'
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held By', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUPPLEMENTAL, label: 'Supplemental Info', itemprop: 'supplemental'
     config.add_show_field(
@@ -297,6 +297,11 @@ class CatalogController < ApplicationController
 
   end
 
-
+  # Administrative view of document
+  # - Sidecar Image
+  # - URIs
+  def admin
+    deprecated_response, @document = search_service.fetch(params[:id])
+  end
 
 end

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 class SolrDocument
   include Blacklight::Solr::Document
- include Geoblacklight::SolrDocument
+  include Geoblacklight::SolrDocument
+  include WmsRewriteConcern
 
   # self.unique_key = 'id'
   self.unique_key = 'layer_slug_s'
@@ -41,5 +42,20 @@ class SolrDocument
     end
 
     return uris
+  end
+
+  def sidecar
+    # Find or create, and set version
+    sidecar = SolrDocumentSidecar.where(
+      document_id: id,
+      document_type: self.class.to_s
+    ).first_or_create do |sc|
+      sc.version = self._source["_version_"]
+    end
+
+    sidecar.version = self._source["_version_"]
+    sidecar.save
+
+    sidecar
   end
 end

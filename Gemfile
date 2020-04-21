@@ -69,7 +69,7 @@ gem 'blacklight_advanced_search', git: 'https://github.com/projectblacklight/bla
 gem 'blacklight_range_limit', '~> 7.0.0'
 gem 'chosen-rails' #  jquery multiselect plugin for advanced search
 
-gem 'geoblacklight', '~> 2.2.1'
+gem 'geoblacklight', '~> 2.3.0'
 gem 'rsolr', '>= 1.0', '< 3'
 gem 'bootstrap', '~> 4.0'
 gem 'popper_js'
@@ -77,6 +77,14 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
+
+# Admin view
+gem 'haml'
+gem 'awesome_print'
+gem 'inline_svg', '~> 1.7.0'
+
+# Sidecar images
+gem 'geoblacklight_sidecar_images', '~> 0.6.0'
 
 gem 'capistrano', '~>3.11.0'
 gem 'capistrano-bundler', '~>1.4.0'

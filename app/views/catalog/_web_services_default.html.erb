@@ -1,0 +1,9 @@
+<% document ||= @document %>
+
+<div class='form-group web-services-form'>
+  <h2 class='h5' for='<%= reference.type%>_webservice'>
+    <%= "#{formatted_name_reference(reference.type)}" %>
+  </h2>
+  <a class='text' id='<%= reference.type%>_webservice' href='<%= reference.endpoint %>' target='_blank'> <%= reference.endpoint %>
+  </a>
+</div>
