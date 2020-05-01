@@ -36,7 +36,8 @@ class CatalogController < ApplicationController
     ## @see https://lucene.apache.org/solr/guide/6_6/the-dismax-query-parser.html#TheDisMaxQueryParser-Theq.altParameter
     config.default_solr_params = {
       start: 0,
-      'q.alt' => '*:*'
+      'q.alt' => '*:*',
+      'bf' => ['if(exists(uw_deprioritize_item_b),0,100)^0.5']
     }
 
     ## Default rows returned from Solr
@@ -50,6 +51,7 @@ class CatalogController < ApplicationController
      :qt => 'document',
      :q => '{!raw f=layer_slug_s v=$id}'
     }
+
 
 
     # solr field configuration for search results/index views
